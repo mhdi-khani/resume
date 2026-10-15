@@ -13,7 +13,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai">
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet">
-<link rel="canonical" href="http://mhdikhani.ir/">
+<link rel="canonical" href="https://mhdikhani.ir/">
 <meta name="description" content="شرکت در قرعه‌کشی PS5 ویژه صاحبان خودرو؛ با پاسخ به یک سؤال ساده وارد قرعه‌کشی شو. سپاهان باتری | ۰۹۶۹۰">
 <meta name="theme-color" content="#07111f">
 <title>قرعه‌کشی PS5 | ۰۹۶۹۰ سپاهان باتری</title>
@@ -1122,7 +1122,20 @@ function validateStep2(){
   else setErr(m,'errMobile','');
   if(first){first.focus();return;}
   phoneFinal=mobile; leadName=name;
-  newCaptcha(); showStep(3); capInput.focus();
+
+  // Submit immediately after valid name + mobile; do not require CAPTCHA.
+  submitLead();
+  saveLead();
+  applyDoneCopy();
+  document.getElementById('ticketNo').textContent=maskMobile(phoneFinal);
+  ['s1','s2','s3'].forEach(id=>document.getElementById(id).classList.add('hidden'));
+  document.getElementById('done').classList.remove('hidden');
+  document.querySelectorAll('.bar').forEach(x=>x.classList.add('active'));
+  formCompletedAt=Date.now();
+  upgradeQuickBuyLink();
+  afterLead();
+  document.getElementById('stickyCta').dataset.mode='done';
+  document.querySelector('#done h3').focus({preventScroll:true});
 }
 ['fullname','mobile'].forEach(id=>{
   const el=document.getElementById(id);
