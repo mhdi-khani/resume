@@ -1,0 +1,37 @@
+# ============================================================
+# robots.txt  (must be placed at the ROOT of the domain that
+# serves the page, e.g. https://YOURDOMAIN/robots.txt)
+# ============================================================
+
+# >>> EDIT HERE: put the path(s) of your landing page below <<<
+# Examples:  /landing/    /ps5/    /ps5/index.html
+# Use one "Disallow:" line per path. Keep the leading slash.
+# (Use "/" only if you want to block the WHOLE site.)
+#
+# Replace the line "Disallow: /YOUR-PATH/" with your own paths.
+
+# ---- AI crawlers: blocked from your path(s) ----
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: PerplexityBot
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: FacebookBot
+User-agent: Meta-ExternalAgent
+User-agent: cohere-ai
+User-agent: Diffbot
+User-agent: ImagesiftBot
+Disallow: /YOUR-PATH/
+
+# ---- Search engines: NOT blocked here on purpose ----
+# They must be able to open the page to read its noindex meta tag.
+# (If you block them here, they can't see noindex and may still list the URL.)
+User-agent: *
+Allow: /
