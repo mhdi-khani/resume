@@ -28,7 +28,7 @@ User-agent: Meta-ExternalAgent
 User-agent: cohere-ai
 User-agent: Diffbot
 User-agent: ImagesiftBot
-Disallow: /YOUR-PATH/
+Disallow: /landing-ps5-carbattery/
 
 # ---- Search engines: NOT blocked here on purpose ----
 # They must be able to open the page to read its noindex meta tag.
