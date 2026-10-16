@@ -152,7 +152,14 @@ h2:after{content:"";flex:1;height:1px;background:var(--line)}
 .hp{position:absolute;inset-inline-start:0;top:0;opacity:0;height:0;width:0;overflow:hidden;pointer-events:none}
 #cfmsg{font-size:14px;color:var(--mute);margin:0}
 #cfmsg.ok{color:var(--acc);font-weight:600}
-footer{padding:36px 0 8px;text-align:center;color:var(--mute);font-size:13px}
+footer{padding:44px 0 8px;color:var(--mute);font-size:13px}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px 48px;align-items:start;border-top:1px solid var(--line);padding-top:28px}
+.fqh{margin:0 0 8px;color:var(--ink);font-size:17px;font-weight:700;line-height:1.5}
+.fqp{margin:0;color:var(--mute);font-size:14px;line-height:1.8;max-width:520px}
+.fct{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+.fct .btn{justify-content:flex-start;text-decoration:none}
+.fb{margin:28px 0 0;text-align:center;font-size:12px}
+@media (max-width:700px){.fgrid{grid-template-columns:1fr}}
 .toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(90px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:12px;font-size:14px;transition:transform .6s var(--ease);z-index:20}
 .toast.on{transform:translateX(-50%)}
 /* reveal */
@@ -262,7 +269,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="row" style="align-items:center"><button class="btn pri cta" id="send" type="submit" data-cta="form_submit" data-loc="contact"><i data-i="send"></i><span data-t="f_send"></span></button><p id="cfmsg" role="status"></p></div>
     </form>
   </section>
-  <footer data-t="footer"></footer>
+  <footer>
+    <div class="fgrid">
+      <div class="fq"><p class="fqh" data-t="q_h"></p><p class="fqp" data-t="q_p"></p></div>
+      <div class="fct" id="fcontact"></div>
+    </div>
+    <p class="fb" data-t="footer"></p>
+  </footer>
 </div>
 
 <a class="btn pri fab" id="fab" href="#s-contact" data-cta="fab_primary" data-loc="floating"><i data-i="coffee"></i><span data-t="cta"></span></a>
@@ -302,7 +315,7 @@ en:{ui:{title:"Mahdi Khani | Performance Marketer & Growth Specialist",name:"Mah
  e_name_req:"Please enter your name.",e_name_min:"Name must be at least 2 characters.",e_name_max:"Name must be 60 characters or fewer.",e_email_req:"Please enter your email.",e_email_bad:"Please enter a valid email, like name@example.com.",e_email_max:"Email must be 254 characters or fewer.",e_msg_max:"Message must be 1000 characters or fewer.",
  f_ok:"Thanks! Your message is on its way. I'll reply soon.",f_sending:"Sending…",f_fail:"Could not send. Please email me at ",f_mail:"Opening your email app…",f_subj:"Message from ",f_fix:"Please fix the highlighted fields.",
  pop_t:"Let's have a coffee, marketing-flavored.",pop_p:"Bring your funnel, your CAC or your wildest growth idea. I'll bring the data and a few experiments worth testing. It takes under a minute.",pop_cta:"Start the conversation",pop_later:"Maybe later",close:"Close",
- footer:"Built with data, not guesses",share_ok:"Link copied",share_fail:"Copy the link from the address bar"},
+ q_h:"Everyone is trying to be seen. I’d rather understand.",q_p:"In marketing and in life, there’s always a way to get attention. But getting noticed and making an impact are two different things; and I care more about the latter.",footer:"Built with data, not guesses",share_ok:"Link copied",share_fail:"Copy the link from the address bar"},
  title:"Performance Marketer & Growth Specialist",
  summary:"Performance marketing specialist who loves building and optimizing ads that drive results. Strong background in data analysis with a keen eye for detail: from creative concepts to A/B tests, always looking for ways to improve ROI and the overall customer experience.",
  kpis:[["ROAS","Return on ad spend, tracked per campaign and creative"],["CAC","Cost to acquire a customer, by channel"],["LTV","Lifetime value to guide scaling decisions"],["CVR","Conversion rate across the whole funnel"]],
@@ -326,7 +339,7 @@ fa:{ui:{title:"مهدی خانی | Performance Marketer و Growth Specialist",na
  e_name_req:"لطفاً نام خود را وارد کنید.",e_name_min:"نام باید حداقل ۲ کاراکتر باشد.",e_name_max:"نام نباید بیشتر از ۶۰ کاراکتر باشد.",e_email_req:"لطفاً ایمیل خود را وارد کنید.",e_email_bad:"لطفاً یک ایمیل معتبر وارد کنید، مثل name@example.com.",e_email_max:"ایمیل نباید بیشتر از ۲۵۴ کاراکتر باشد.",e_msg_max:"پیام نباید بیشتر از ۱۰۰۰ کاراکتر باشد.",
  f_ok:"ممنون! پیام شما ارسال شد. به‌زودی پاسخ می‌دهم.",f_sending:"در حال ارسال…",f_fail:"ارسال نشد. لطفاً به این ایمیل پیام دهید: ",f_mail:"در حال باز کردن برنامه‌ی ایمیل…",f_subj:"پیام از ",f_fix:"لطفاً فیلدهای مشخص‌شده را اصلاح کنید.",
  pop_t:"یک قهوه با طعم مارکتینگ؟",pop_p:"Funnel، CAC یا جاه‌طلبانه‌ترین ایده‌ی رشدتان را بیاورید؛ داده و چند آزمایش ارزشمند از من. کمتر از یک دقیقه وقت می‌گیرد.",pop_cta:"شروع گفتگو",pop_later:"شاید بعداً",close:"بستن",
- footer:"ساخته‌شده با داده، نه حدس",share_ok:"لینک کپی شد",share_fail:"لینک را از نوار آدرس کپی کنید"},
+ q_h:"همه در تلاش‌اند بهتر دیده شوند؛ من ترجیح می‌دهم بهتر بفهمم.",q_p:"چه در بازاریابی، چه در زندگی، همیشه راهی برای جلب توجه وجود دارد. اما توجه گرفتن با اثر گذاشتن فرق دارد؛ و من به دومی بیشتر علاقه دارم.",footer:"ساخته‌شده با داده، نه حدس",share_ok:"لینک کپی شد",share_fail:"لینک را از نوار آدرس کپی کنید"},
  title:"Performance Marketer و Growth Specialist",
  summary:"متخصص Performance Marketing که عاشق ساخت و بهینه‌سازی تبلیغاتی است که نتیجه می‌دهند. با پیشینه‌ی قوی در تحلیل داده و دقت بالا در جزئیات؛ از ایده‌ی خلاقانه تا A/B Test، همیشه دنبال راهی برای بهبود ROI و تجربه‌ی مشتری هستم.",
  kpis:[["ROAS","بازگشت هزینه‌ی تبلیغات، به تفکیک کمپین و Creative"],["CAC","هزینه‌ی جذب مشتری، به تفکیک کانال"],["LTV","ارزش طول عمر مشتری برای تصمیم‌گیری درباره‌ی مقیاس"],["CVR","نرخ تبدیل در کل Funnel"]],
@@ -350,7 +363,7 @@ de:{ui:{title:"Mahdi Khani | Performance Marketer & Growth Specialist",name:"Mah
  e_name_req:"Bitte geben Sie Ihren Namen ein.",e_name_min:"Der Name muss mindestens 2 Zeichen lang sein.",e_name_max:"Der Name darf höchstens 60 Zeichen lang sein.",e_email_req:"Bitte geben Sie Ihre E-Mail-Adresse ein.",e_email_bad:"Bitte geben Sie eine gültige E-Mail-Adresse ein, z. B. name@example.com.",e_email_max:"Die E-Mail-Adresse darf höchstens 254 Zeichen lang sein.",e_msg_max:"Die Nachricht darf höchstens 1000 Zeichen lang sein.",
  f_ok:"Danke! Ihre Nachricht ist unterwegs. Ich melde mich bald.",f_sending:"Wird gesendet…",f_fail:"Senden fehlgeschlagen. Bitte schreiben Sie mir an ",f_mail:"E-Mail-App wird geöffnet…",f_subj:"Nachricht von ",f_fix:"Bitte korrigieren Sie die markierten Felder.",
  pop_t:"Ein Kaffee mit Marketing-Note?",pop_p:"Bringen Sie Ihren Funnel, Ihren CAC oder Ihre wildeste Wachstumsidee mit. Ich bringe die Daten und ein paar Experimente mit, die einen Test wert sind. Dauert weniger als eine Minute.",pop_cta:"Gespräch beginnen",pop_later:"Vielleicht später",close:"Schließen",
- footer:"Gebaut mit Daten, nicht mit Vermutungen",share_ok:"Link kopiert",share_fail:"Link aus der Adressleiste kopieren"},
+ q_h:"Alle wollen gesehen werden. Ich möchte lieber verstehen.",q_p:"Ob im Marketing oder im Leben – es gibt immer einen Weg, Aufmerksamkeit zu bekommen. Doch Aufmerksamkeit zu erregen und wirklich etwas zu bewirken, sind zwei verschiedene Dinge. Und Letzteres ist mir wichtiger.",footer:"Gebaut mit Daten, nicht mit Vermutungen",share_ok:"Link kopiert",share_fail:"Link aus der Adressleiste kopieren"},
  title:"Performance Marketer & Growth Specialist",
  summary:"Performance-Marketing-Spezialist, der gerne Anzeigen entwickelt und optimiert, die Ergebnisse liefern. Starker Hintergrund in der Datenanalyse und ein scharfer Blick fürs Detail: von kreativen Konzepten bis zu A/B Tests – immer auf der Suche nach Wegen, den ROI und das gesamte Kundenerlebnis zu verbessern.",
  kpis:[["ROAS","Return on Ad Spend, erfasst pro Kampagne und Creative"],["CAC","Kosten der Kundengewinnung, pro Kanal"],["LTV","Customer Lifetime Value als Grundlage für Skalierungsentscheidungen"],["CVR","Conversion Rate über den gesamten Funnel"]],
@@ -367,7 +380,7 @@ de:{ui:{title:"Mahdi Khani | Performance Marketer & Growth Specialist",name:"Mah
  projects:[["Landing-ps5-carbattery","HTML-Landingpage-Projekt.",P0]]}};
 
 const $=id=>document.getElementById(id);
-const ICONS={megaphone:"M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zM15 9a4 4 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11",flask:"M9 3h6M10 3v6L5 19a1.5 1.5 0 0 0 1.3 2h11.4A1.5 1.5 0 0 0 19 19l-5-10V3M8 15h8",target:"M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM12 11.2a.8.8 0 1 0 0 1.6.8.8 0 0 0 0-1.6z",chart:"M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6",refresh:"M20 11a8 8 0 0 0-14.5-3.5L4 9M4 4v5h5M4 13a8 8 0 0 0 14.5 3.5L20 15M20 20v-5h-5",cap:"M2 9l10-5 10 5-10 5zM6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5M22 9v6",globe:"M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18",award:"M12 3a6 6 0 1 0 0 12 6 6 0 0 0 0-12zM8.5 14l-1.5 7 5-3 5 3-1.5-7",mail:"M3 6h18v12H3zM3 7l9 6 9-6",download:"M12 4v11M7 11l5 5 5-5M5 20h14",share:"M12 15V4M8 8l4-4 4 4M5 12v7h14v-7",moon:"M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z",sun:"M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4",linkedin:"M4 4h16v16H4zM8 10v7M8 7v.01M12 17v-7M12 13a3 3 0 0 1 6 0v4",github:"M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.5-.5-2.2 2.8-.3 5.5-1.4 5.5-6a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1-.3-3.4 1.3a11.7 11.7 0 0 0-6 0C6.8 2.8 5.8 3.1 5.8 3.1a4.4 4.4 0 0 0-.1 3.3A4.7 4.7 0 0 0 4.4 9.7c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2.2V21",arrow:"M7 17L17 7M8 7h9v9",menu:"M4 7h16M4 12h16M4 17h16",close:"M6 6l12 12M18 6L6 18",play:"M8 5v14l11-7z",pause:"M8 5v14M16 5v14",speaker:"M11 5L6 9H3v6h3l5 4zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13",send:"M21 3L10 14M21 3l-7 18-4-7-7-4z",coffee:"M4 10h12v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 11h1.5a2.5 2.5 0 0 1 0 5H16M7 3v3M10 3v3M13 3v3"};
+const ICONS={phone:"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z",megaphone:"M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zM15 9a4 4 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11",flask:"M9 3h6M10 3v6L5 19a1.5 1.5 0 0 0 1.3 2h11.4A1.5 1.5 0 0 0 19 19l-5-10V3M8 15h8",target:"M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM12 11.2a.8.8 0 1 0 0 1.6.8.8 0 0 0 0-1.6z",chart:"M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6",refresh:"M20 11a8 8 0 0 0-14.5-3.5L4 9M4 4v5h5M4 13a8 8 0 0 0 14.5 3.5L20 15M20 20v-5h-5",cap:"M2 9l10-5 10 5-10 5zM6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5M22 9v6",globe:"M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18",award:"M12 3a6 6 0 1 0 0 12 6 6 0 0 0 0-12zM8.5 14l-1.5 7 5-3 5 3-1.5-7",mail:"M3 6h18v12H3zM3 7l9 6 9-6",download:"M12 4v11M7 11l5 5 5-5M5 20h14",share:"M12 15V4M8 8l4-4 4 4M5 12v7h14v-7",moon:"M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z",sun:"M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4",linkedin:"M4 4h16v16H4zM8 10v7M8 7v.01M12 17v-7M12 13a3 3 0 0 1 6 0v4",github:"M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.5-.5-2.2 2.8-.3 5.5-1.4 5.5-6a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1-.3-3.4 1.3a11.7 11.7 0 0 0-6 0C6.8 2.8 5.8 3.1 5.8 3.1a4.4 4.4 0 0 0-.1 3.3A4.7 4.7 0 0 0 4.4 9.7c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2.2V21",arrow:"M7 17L17 7M8 7h9v9",menu:"M4 7h16M4 12h16M4 17h16",close:"M6 6l12 12M18 6L6 18",play:"M8 5v14l11-7z",pause:"M8 5v14M16 5v14",speaker:"M11 5L6 9H3v6h3l5 4zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13",send:"M21 3L10 14M21 3l-7 18-4-7-7-4z",coffee:"M4 10h12v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 11h1.5a2.5 2.5 0 0 1 0 5H16M7 3v3M10 3v3M13 3v3"};
 const ic=n=>n==='coffee'?'<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h12v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path class="stm" d="M7 6.2c1-1.1-1-2 0-3.2"/><path class="stm s2" d="M10 6.2c1-1.1-1-2 0-3.2"/><path class="stm s3" d="M13 6.2c1-1.1-1-2 0-3.2"/></svg>':'<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="'+ICONS[n]+'"/></svg>';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const root=document.documentElement;
@@ -404,7 +417,8 @@ function render(){
   $('loop').innerHTML=L.loop.map(l=>`<div><b>${esc(l[0])}</b><span>${esc(l[1])}</span></div>`).join('');
   $('tools').innerHTML=D.tools.map(t=>`<span class="chip">${esc(t)}</span>`).join('');
   $('exp').innerHTML=L.experience.map(e=>`<div class="it"><h3>${esc(e.role)} · ${esc(e.company)}</h3><small>${esc(e.period)}</small>${e.points.length?'<ul>'+e.points.map(p=>`<li>${esc(p)}</li>`).join('')+'</ul>':''}</div>`).join('');
-  $('edu').innerHTML=[['cap',U.c_edu,L.education],['globe',U.c_lang,L.languages],['award',U.c_cert,D.certs.join(' · ')]].map(c=>`<div class="card"><div class="ico">${ic(c[0])}</div><h3>${esc(c[1])}</h3><p>${esc(c[2])}</p></div>`).join('')+`<div class="card"><div class="ico">${ic('mail')}</div><h3>${esc(U.c_mail)}</h3><p><a href="mailto:${D.email}" dir="ltr" data-cta="email_link" data-loc="education">${D.email}</a></p></div>`;
+  $('edu').innerHTML=[['cap',U.c_edu,L.education],['globe',U.c_lang,L.languages],['award',U.c_cert,D.certs.join(' · ')]].map(c=>`<div class="card"><div class="ico">${ic(c[0])}</div><h3>${esc(c[1])}</h3><p>${esc(c[2])}</p></div>`).join('');
+  $('fcontact').innerHTML=`<a class="btn" href="mailto:${D.email}" data-cta="email_link" data-loc="footer">${ic('mail')}<span dir="ltr">${D.email}</span></a><a class="btn" href="tel:+98${D.phone.replace(/^0/,'')}" data-cta="phone_link" data-loc="footer">${ic('phone')}<span dir="ltr">${lang==='fa'?D.phone:'+98 '+D.phone.slice(1,4)+' '+D.phone.slice(4,7)+' '+D.phone.slice(7)}</span></a>`;
   $('projects').innerHTML=L.projects.map(p=>`<a class="card" style="text-decoration:none" href="${p[2]}" target="_blank" rel="noopener" data-cta="project_${esc(p[0])}" data-loc="projects"><h3>${esc(p[0])} ${ic('arrow')}</h3><p>${esc(p[1])}</p></a>`).join('');
   document.querySelectorAll('[data-i]').forEach(e=>e.innerHTML=ic(e.dataset.i));
   stagger('#kpis,#services,#loop,#tools,#exp,#edu,#projects,#funnel');paint();
