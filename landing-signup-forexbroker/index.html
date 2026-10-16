@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="assets/css/swiper/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-navy">
+
+
+<!--START-MODAL-->
+<div class="modal bg-black bg-opacity-80 fixed top-0 right-0 w-full h-full z-50 lg:p-4 overflow-y-auto overflow-x-hidden">
+    <div class="container min-h-full lg:flex items-center max-lg:px-0">
+        <div class="bg-[#070919] lg:rounded-[20px] lg:p-12 max-lg:py-12 max-lg:px-4 relative overflow-hidden w-full min-h-full">
+            <i class="icon-close absolute lg:left-6 left-4 lg:top-6 top-4 lg:text-lg text-base text-white z-20 cursor-pointer"></i>
+            <img src="assets/img/lines.png" alt="" class="absolute top-0 left-0 max-lg:hidden">
+            <h3 class="lg:text-3xl text-2xl text-white font-bold block text-center relative z-10 max-lg:mb-5">
+                رسپی ترید
+                <span class="text-warning">
+                    طلا
+                </span>
+                رو الان به رایگان دانلود کن !
+            </h3>
+            <div class="-m-2 flex flex-wrap items-center relative z-10">
+                <div class="lg:w-1/2 w-full p-2">
+                    <h4 class="lg:text-2xl text-md text-white font-bold block mb-4">
+                        در این رسپی یاد می‌گیری ...
+                    </h4>
+                    <ul class="max-lg:mb-5">
+                        <li class="lg:text-xl text-base text-white flex items-center mb-1 last:mb-0">
+                            <span class="w-3 h-3 rounded-full bg-warning ml-2"></span>
+                            با چه اندیکاتورهایی طلا رو بررسی کنی !
+                        </li>
+                        <li class="lg:text-xl text-base text-white flex items-center mb-1 last:mb-0">
+                            <span class="w-3 h-3 rounded-full bg-warning ml-2"></span>
+                            استراتژی سودده برای طلا چی هست ؟
+                        </li>
+                        <li class="lg:text-xl text-base text-white flex items-center mb-1 last:mb-0">
+                            <span class="w-3 h-3 rounded-full bg-warning ml-2"></span>
+                            چطور استفادش کنم ؟
+                        </li>
+                        <li class="lg:text-xl text-base text-white flex items-center mb-1 last:mb-0">
+                            <span class="w-3 h-3 rounded-full bg-warning ml-2"></span>
+                            چطور  بتونی تحلیل فاندامنتال کنی؟
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2 w-full p-2 max-lg:-order-1">
+                    <img src="assets/img/modal.png" alt="" class="lg:mr-auto max-lg:mx-auto block max-lg:w-[240px]">
+                </div>
+            </div>
+            <div class="relative z-10">
+                <div class="lg:text-md text-base text-white flex items-center justify-center font-light mb-3">
+                    به ارزش
+                    <b class="lg:text-4xl text-xl text-warning font-bold mx-1.5">
+                        ۲,۷۰۰,۰۰۰
+                    </b>
+                    تومان
+                </div>
+                <a href="" class="lg:text-xl text-md text-white font-bold block text-center bg-warning transition-all hover:bg-warning-dark py-2 rounded-xl lg:max-w-[400px] mx-auto ">
+                    دانلود رایگان
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END-MODAL-->
+
+
+<!--START-HEADER-AND-MAIN-SLIDE-->
+<div class="bg-gra-main-slide lg:pt-10 lg:mb-36 mb-24 relative">
+    <!--START-HEADER-->
+    <header class="bg-gra-header py-5">
+        <div class="container flex items-center">
+            <a href="" class="block ml-4 relative z-40">
+                <img src="assets/img/logo.png" alt="" class="lg:max-h-[40px] max-h-[30px]">
+            </a>
+            <nav class="max-lg:hidden relative z-20 max-lg:absolute top-0 right-0 max-lg:bg-navy max-lg:w-full max-lg:px-4 max-lg:pt-[80px] max-lg:pb-4 max-lg:rounded-b-xl max-lg:shadow-nav">
+                <ul class="flex lg:items-center max-lg:flex-col">
+                    <li class="header-nav-item relative last:after:hidden max-lg:after:hidden">
+                        <a href="#why" class="link-scroll text-md font-medium block text-white lg:px-4 max-lg:py-1.5">
+                            چرا متازی
+                        </a>
+                    </li>
+                    <li class="header-nav-item relative last:after:hidden max-lg:after:hidden">
+                        <a href="#services" class="link-scroll text-md font-medium block text-white lg:px-4 max-lg:py-1.5">
+                            خدمات ما
+                        </a>
+                    </li>
+                    <li class="header-nav-item relative last:after:hidden max-lg:after:hidden">
+                        <a href="#form" class="link-scroll text-md font-medium block text-white lg:px-4 max-lg:py-1.5">
+                            مشاوره رایگان
+                        </a>
+                    </li>
+                    <li class="header-nav-item relative last:after:hidden max-lg:after:hidden">
+                        <a href="#faq" class="link-scroll text-md font-medium block text-white lg:px-4 max-lg:py-1.5">
+                            سوالات متداول
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="btn-menu mr-auto p-0 text-2xl text-white lg:hidden relative z-40">
+                <i class="icon-menu"></i>
+                <i class="icon-close" style="display: none"></i>
+            </button>
+        </div>
+    </header>
+    <!--END-HEADER-->
+
+    <!--START-MAIN-SLIDE-->
+    <div class="lg:pt-[75px] lg:pb-[90px] max-lg:py-9">
+        <div class="container flex items-center flex-wrap">
+            <article class="lg:w-1/2 w-full flex items-start">
+                <img src="assets/img/dots-1.svg" alt="" class="lg:h-12 h-8 lg:ml-5 ml-2.5 block relative top-2.5">
+                <div class="w-full">
+                    <h1 class="lg:text-5xl text-3xl text-white font-bold block mb-2">
+                        مشاوره انتخاب بروکر،
+                        <br class="lg:hidden">
+                        <span class="main-slide-title-inner relative inline-block">
+                            بدون محدودیت
+                        </span>
+                    </h1>
+                    <h2 class="lg:text-4xl text-lg text-white font-medium mb-9 flex items-center">
+                        <i class="icon-checked lg:text-2xl text-md text-success block ml-3"></i>
+                        متناسب با تریدرهای نسل Z
+                    </h2>
+                    <a href="#form" class="btn-modern link-scroll">
+                        مشاوره رایگان
+                        <i class="icon-arrow-left btn-modern-icon"></i>
+                    </a>
+                </div>
+            </article>
+            <div class="lg:w-1/2 w-full lg:h-[175px] relative max-lg:-order-1 max-lg:mb-9">
+                <img src="assets/img/img-1.png" alt="" class="absolute top-0 w-full lg:-mt-[45px] lg:pr-24 relative z-10 max-lg:max-h-[290px] max-lg:object-contain">
+                <div class="main-slide-circle-1"></div>
+                <div class="main-slide-circle-2"></div>
+            </div>
+        </div>
+    </div>
+    <!--END-MAIN-SLIDE-->
+</div>
+<!--END-HEADER-AND-MAIN-SLIDE-->
+
+<!--START-MAIN-->
+<main>
+    <!--START-WHY-CHOICE-->
+    <div class="container lg:mb-36 mb-24">
+        <h2 class="lg:text-5xl text-2xl text-white font-bold block text-center mb-10">
+            چرا انتخاب بروکر اهمیت دارد؟
+        </h2>
+        <div class="lg:-m-2 -m-4 flex flex-wrap max-sm:justify-center max-sm:items-center max-sm:flex-col">
+            <article class="lg:w-1/5 md:w-1/4 sm:w-1/3 w-[220px] lg:p-2 p-4">
+                <div class="bg-gra-1 rounded-[30px] w-full mt-[15.5px]">
+                    <div class="p-1 rounded-b-xl bg-navy w-[52px] h-[47px] p-[5px] !pt-0 mx-auto relative -top-[23.5px] -mb-[23.5px]">
+                        <img src="assets/img/icon-1.png" alt="" class="w-full h-full">
+                    </div>
+                    <h3 class="text-md font-bold text-white text-center pb-6 pt-4 block">
+                        کاهش ریسک ترید
+                    </h3>
+                </div>
+            </article>
+            <article class="lg:w-1/5 md:w-1/4 sm:w-1/3 w-[220px] lg:p-2 p-4">
+                <div class="bg-gra-2 rounded-[30px] w-full mt-[15.5px]">
+                    <div class="p-1 rounded-b-xl bg-navy w-[52px] h-[47px] p-[5px] !pt-0 mx-auto relative -top-[23.5px] -mb-[23.5px]">
+                        <img src="assets/img/icon-2.png" alt="" class="w-full h-full">
+                    </div>
+                    <h3 class="text-md font-bold text-white text-center pb-6 pt-4 block">
+                        افزایش امنیت سرمایه
+                    </h3>
+                </div>
+            </article>
+            <article class="lg:w-1/5 md:w-1/4 sm:w-1/3 w-[220px] lg:p-2 p-4">
+                <div class="bg-gra-3 rounded-[30px] w-full mt-[15.5px]">
+                    <div class="p-1 rounded-b-xl bg-navy w-[52px] h-[47px] p-[5px] !pt-0 mx-auto relative -top-[23.5px] -mb-[23.5px]">
+                        <img src="assets/img/icon-3.png" alt="" class="w-full h-full">
+                    </div>
+                    <h3 class="text-md font-bold text-white text-center pb-6 pt-4 block">
+                        افزایش حاشیه سود
+                    </h3>
+                </div>
+            </article>
+            <article class="lg:w-1/5 md:w-1/4 sm:w-1/3 w-[220px] lg:p-2 p-4">
+                <div class="bg-gra-4 rounded-[30px] w-full mt-[15.5px]">
+                    <div class="p-1 rounded-b-xl bg-navy w-[52px] h-[47px] p-[5px] !pt-0 mx-auto relative -top-[23.5px] -mb-[23.5px]">
+                        <img src="assets/img/icon-5.png" alt="" class="w-full h-full">
+                    </div>
+                    <h3 class="text-md font-bold text-white text-center pb-6 pt-4 block">
+                        تجربه کاربری بهتر
+                    </h3>
+                </div>
+            </article>
+            <article class="lg:w-1/5 md:w-1/4 sm:w-1/3 w-[220px] lg:p-2 p-4">
+                <div class="bg-gra-5 rounded-[30px] w-full mt-[15.5px]">
+                    <div class="p-1 rounded-b-xl bg-navy w-[52px] h-[47px] p-[5px] !pt-0 mx-auto relative -top-[23.5px] -mb-[23.5px]">
+                        <img src="assets/img/icon-4.png" alt="" class="w-full h-full">
+                    </div>
+                    <h3 class="text-md font-bold text-white text-center pb-6 pt-4 block">
+                        پشتیبانی VIP
+                    </h3>
+                </div>
+            </article>
+        </div>
+    </div>
+    <!--START-WHY-CHOICE-->
+
+    <!--START-WHY-US-->
+    <div id="why" class="container lg:mb-36 mb-24 lg:px-28">
+        <h2 class="lg:text-5xl text-2xl text-white font-bold block text-center mb-10">
+            چرا متازی؟
+        </h2>
+        <div class="-m-2 flex flex-wrap justify-center">
+            <article class="lg:w-1/3 sm:w-1/2 w-full p-2">
+                <div class="why-item p-4 rounded-[30px] bg-gra-why h-full relative">
+                    <div class="w-[52px] h-[52px] rounded-2xl bg-purple text-white flex items-center justify-center mb-3">
+                        <i class="icon-profile-2user text-5xl block"></i>
+                    </div>
+                    <h3 class="text-md font-bold text-white block mb-1.5">
+                        تیم  متخصص
+                    </h3>
+                    <p class="text-base text-white block mb-0">
+                        تیمی متخصص و با تجربه در زمینههای مالی و بورس که توانایی ارائه مشاوره حرفه ای را دارند
+                    </p>
+                </div>
+            </article>
+            <article class="lg:w-1/3 sm:w-1/2 w-full p-2">
+                <div class="why-item p-4 rounded-[30px] bg-gra-why h-full relative">
+                    <div class="w-[52px] h-[52px] rounded-2xl bg-purple text-white flex items-center justify-center mb-3">
+                        <i class="icon-shield-tick text-5xl block"></i>
+                    </div>
+                    <h3 class="text-md font-bold text-white block mb-1.5">
+                        شفافیت در عملکرد
+                    </h3>
+                    <p class="text-base text-white block mb-0">
+                        این شرکت تعهد به افشای اطلاعات مهم به مشتریان دارد و شفافیت در تمامی جنبه های فعالیتهای مالی را از اصول خود قرارداده است.
+                    </p>
+                </div>
+            </article>
+            <article class="lg:w-1/3 sm:w-1/2 w-full p-2">
+                <div class="why-item p-4 rounded-[30px] bg-gra-why h-full relative">
+                    <div class="w-[52px] h-[52px] rounded-2xl bg-purple text-white flex items-center justify-center mb-3">
+                        <i class="icon-star text-5xl block"></i>
+                    </div>
+                    <h3 class="text-md font-bold text-white block mb-1.5">
+                        مشتری مداری
+                    </h3>
+                    <p class="text-base text-white block mb-0">
+                        شرکت به طور فعال به تفهیم ،نیازها، اهداف و ترجیحات مشتریان میپردازد و خدمات و مشاوره را به شکلی ارائه میدهد که بهترین تجربه ممکن را برای آنها ایجاد کند.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+    <!--START-WHY-US-->
+
+
+    <!--START-STATS-->
+    <div class="py-12 bg-gra-main-slide lg:mb-36 mb-24 relative">
+        <img src="assets/img/stats-right.png" alt="" class="absolute top-1/2 -translate-y-1/2 right-3 max-lg:hidden">
+        <div class="container flex items-center justify-between flex-wrap">
+            <div class="lg:text-lg text-md text-white font-bold flex items-center max-lg:flex-col max-sm:w-full max-sm:mb-12 max-sm:last:mb-0">
+                <b class="xl:text-[58px] text-[48px] inline-block font-bold lg:ml-3 leading-[1]">
+                    5
+                    <span class="text-info">
+                        +
+                    </span>
+                </b>
+                سال سابقه مشاوره
+            </div>
+            <div class="lg:text-lg text-md text-white font-bold flex items-center max-lg:flex-col max-sm:w-full max-sm:mb-12 max-sm:last:mb-0">
+                <b class="xl:text-[58px] text-[48px] inline-block font-bold lg:ml-3 leading-[1]">
+                    ۲۰k
+                    <span class="text-info">
+                        +
+                    </span>
+                </b>
+                معرفی به بروکرهای معتبر
+            </div>
+            <div class="lg:text-lg text-md text-white font-bold flex items-center max-lg:flex-col max-sm:w-full max-sm:mb-12 max-sm:last:mb-0">
+                <b class="xl:text-[58px] text-[48px] inline-block font-bold lg:ml-3 leading-[1]">
+                    1M
+                    <span class="text-info">
+                        +
+                    </span>
+                </b>
+                دقیقه مشاوره و آموزش
+            </div>
+        </div>
+        <img src="assets/img/stats-left.png" alt="" class="absolute top-8 left-8 max-lg:hidden">
+    </div>
+    <!--START-STATS-->
+
+    <!--START-SERVICES-->
+    <div id="services" class="lg:mb-36 mb-24 max-lg:bg-gra-main-slide max-lg:py-10">
+        <div class="container lg:!max-w-[800px] relative z-10">
+            <h2 class="lg:text-5xl text-2xl text-white font-bold block text-center mb-10">
+                خدمات ما
+            </h2>
+            <div class="-m-4 flex flex-wrap">
+                <div class="md:w-1/2 w-full p-4">
+                    <div class="bg-gra-p-1 border border-solid border-white rounded-[30px] block text-center p-6 flex flex-col justify-between h-full">
+                        <div>
+                            <h3 class="text-5xl text-white font-bold mb-5">
+                                پکیج نقره‌ای
+                            </h3>
+                            <p class="text-base text-white font-medium block mb-5">
+                                منتورینگ انتخاب بروکر (۴ ساعت )
+                            </p>
+                            <p class="text-base text-white font-medium block mb-5">
+                                دوره آموزشی
+                            </p>
+                        </div>
+                        <div>
+                            <div class="bg-white bg-opacity-10 text-md font-bold text-white flex items-center justify-center rounded-xl border border-solid border-white border-opacity-50 mb-5 w-fit py-1.5 px-3 mx-auto">
+                                <img src="assets/img/fire.png" alt="" class="ml-2">
+                                پر فروش
+                            </div>
+                            <div class="w-full h-[1px] bg-white mb-3"></div>
+                            <div class="text-5xl text-white font-bold mb-5">
+                                ۷۰۰,۰۰۰
+                                <span class="text-base font-light mr-1.5 inline-block">
+                                تومان
+                            </span>
+                            </div>
+                            <a href="#form" class="btn link-scroll">
+                                دریافت مشاوره اول رایگان
+                                <img src="assets/img/flash.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 w-full p-4">
+                    <div class="bg-gra-p-2 border border-solid border-white rounded-[30px] block text-center p-6 flex flex-col justify-between h-full">
+                        <div>
+                            <h3 class="text-5xl text-warning font-bold mb-5">
+                                پکیج طلایی
+                            </h3>
+                            <p class="text-base text-white font-medium block mb-5">
+                                منتورینگ انتخاب بروکر (۴ ساعت )
+                            </p>
+                            <p class="text-base text-white font-medium block mb-5">
+                                منتورینگ سبک ترید
+                            </p>
+                            <p class="text-base text-white font-medium block mb-5">
+                                دوره آموزشی
+                            </p>
+                            <p class="text-base text-white font-medium block mb-5">
+                                پیشنهاد دوره مکمل
+                            </p>
+                        </div>
+                        <div>
+                            <div class="w-full h-[1px] bg-white mb-3"></div>
+                            <div class="text-5xl text-warning font-bold mb-5">
+                                ۳,۰۰۰,۰۰۰
+                                <span class="text-base font-light mr-1.5 inline-block">
+                                تومان
+                            </span>
+                            </div>
+                            <a href="#form" class="btn btn-warning link-scroll">
+                                دریافت مشاوره اول رایگان
+                                <img src="assets/img/flash.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:bg-gra-main-slide lg:pb-16 lg:pt-[calc(4rem+167px)] lg:-mt-[167px] max-lg:mt-10">
+            <div class="container lg:px-28 flex items-center flex-wrap">
+                <div id="form" class="lg:w-1/2 max-md:w-[310px] w-full lg:first:pl-4 lg:last:pr-4 max-md:mt-10 max-md:mx-auto">
+                    <div class="lg:text-xl text-md text-white font-medium block lg:mb-4 mb-2">
+                        <span id="timer-not-complete-text" style="display: none">
+                            درخواست مشاوره رایگان
+                        </span>
+                        <span id="timer-complete-text">
+                            درخواست مشاوره رایگان و شرکت در دوره جامع SMC
+                        </span>
+                    </div>
+                    <div class="-m-1 flex flex-wrap items-center">
+                        <div class="md:w-1/2 w-full p-1">
+                            <div class="form-group">
+                                <i class="icon-user form-group-icon"></i>
+                                <input type="text" placeholder="نام و نام خانوادگی" class="form-group-input">
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 w-full p-1">
+                            <div class="form-group">
+                                <i class="icon-telephone-1 form-group-icon"></i>
+                                <input type="text" placeholder="شماره تماس" class="form-group-input" id="input-call">
+                            </div>
+                        </div>
+                        <div class="w-full p-1 hidden" id="alert-call">
+                            <div class="min-h-[44px] px-3 py-2 rounded-lg bg-danger-light text-danger block w-full flex items-center">
+                                شماره تماس اشتباه می باشد
+                            </div>
+                        </div>
+                        <div class="w-full p-1">
+                            <div class="form-group">
+                                <i class="icon-page-blank form-group-icon"></i>
+                                <input type="text" placeholder="ایمیل" class="form-group-input">
+                            </div>
+                        </div>
+                        <div class="w-full p-1">
+                            <button class="form-group-btn">
+                                ثبت درخواست
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 max-md:w-[310px] w-full lg:first:pl-4 lg:last:pr-4 max-lg:-order-1 max-md:mx-auto">
+                    <div id="timer-not-complete" class="flex flex-wrap items-center md:justify-center w-full">
+                        <div class="xl:text-3xl text-lg text-white font-bold flex items-center justify-center px-3 py-1.5 rounded-2xl bg-danger xl:ml-10 ml-5 max-md:-order-2">
+                            <img src="assets/img/star.svg" alt="" class="ml-2.5">
+                            پیشنهاد ویژه
+                        </div>
+                        <div class="xl:text-2xl text-md text-danger font-bold max-md:order-1 max-md:text-right max-md:w-full max-md:mb-3">
+                            فرصتی باقی نمونده ...
+                        </div>
+                        <p class="w-full xl:text-lg text-base text-white font-bold block mt-3 md:mb-5 mb-2 text-center max-md:text-right">
+                            شرکت در دوره جامع SMC به ارزش ۵۰۰ هزارتومان به رایگان
+                        </p>
+                        <img src="assets/img/clock.png" alt="" class="block md:ml-3 max-md:-order-1 max-md:max-h-[60px]">
+                        <ul data-countdown="2023/12/11 19:11:53" class="timer max-md:order-2 max-md:w-full max-md:justify-center"></ul>
+                    </div>
+                    <img src="assets/img/bit.png" alt="" id="timer-complete" class="w-full lg:pr-24 max-lg:max-h-[290px]  max-lg:object-contain" style="display: none">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--START-SERVICES-->
+
+    <!--START-TESTIMONIAL-->
+    <div class="lg:mb-36 mb-24 relative">
+        <div class="container">
+            <h2 class="lg:text-5xl text-2xl text-white font-bold block text-center mb-10">
+                نظرات مشتریان
+            </h2>
+            <div class="swiper-container swiper-testimonial overflow-hidden">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide rounded-[40px] rounded-br-none p-6 bg-natural bg-opacity-90 border border-solid border-white shadow-testimonial !h-auto">
+                        <div class="flex items-center">
+                            <img src="assets/img/person.png" alt="" class="w-16 h-16 rounded-full ml-4">
+                            <div class="text-xs text-dark font-light block">
+                                <b class="text-sm font-bold block mb-0.5">
+                                    مینا فتحی
+                                </b>
+                                کارمند شرکت خصوصی
+                            </div>
+                        </div>
+                        <div class="w-full h-[1px] bg-natural-alpha block my-3"></div>
+                        <p class="text-sm text-dark-alpha font-light mb-0 block">
+                            تیم متازی با دقت به نیازهام گوش داد و راهنماییم کردن تا بتونم بروکر مناسبی را انتخاب کنم. اطلاعات ارائه شده پس از جلسه اول مشاوره جامع و قابل فهم بود. من تونستم با اطمینان بیشتری به دنیای ترید وارد بشم.
+                        </p>
+                    </div>
+                    <div class="swiper-slide rounded-[40px] rounded-br-none p-6 bg-natural bg-opacity-90 border border-solid border-white shadow-testimonial !h-auto">
+                        <div class="flex items-center">
+                            <img src="assets/img/person-2.png" alt="" class="w-16 h-16 rounded-full ml-4">
+                            <div class="text-xs text-dark font-light block">
+                                <b class="text-sm font-bold block mb-0.5">
+                                    مینا فتحی
+                                </b>
+                                کارمند شرکت خصوصی
+                            </div>
+                        </div>
+                        <div class="w-full h-[1px] bg-natural-alpha block my-3"></div>
+                        <p class="text-sm text-dark-alpha font-light mb-0 block">
+                            از اولین تماسم تا مشاوره گام به گام، همه مراحل هم سریع و لذت بخش بود. احساس کردم که به عنوان یک مشتری مهم محسوب می‌شوم. مشاوران با دانش بازار آشنا بودند حتی برای ثبت نام در بروکر به من هدیه دادن. بازهم با این شرکت در ارتباط خواهم بود.
+                        </p>
+                    </div>
+                    <div class="swiper-slide rounded-[40px] rounded-br-none p-6 bg-natural bg-opacity-90 border border-solid border-white shadow-testimonial !h-auto">
+                        <div class="flex items-center">
+                            <img src="assets/img/person-3.png" alt="" class="w-16 h-16 rounded-full ml-4">
+                            <div class="text-xs text-dark font-light block">
+                                <b class="text-sm font-bold block mb-0.5">
+                                    مینا فتحی
+                                </b>
+                                کارمند شرکت خصوصی
+                            </div>
+                        </div>
+                        <div class="w-full h-[1px] bg-natural-alpha block my-3"></div>
+                        <p class="text-sm text-dark-alpha font-light mb-0 block">
+                            با توجه به مشاوره‌ای که از تیم متازی دریافت کردم، بهترین بروکر رو انتخاب کردم. به من اطمینان دادن که تصمیمم درسته و با توجه به اطلاعات ارائه شده، حس کردم که یک تصمیم با اطلاعات کامل گرفتم. این تجربه را به همه توصیه می‌کنم.
+                        </p>
+                    </div>
+                    <div class="swiper-slide rounded-[40px] rounded-br-none p-6 bg-natural bg-opacity-90 border border-solid border-white shadow-testimonial !h-auto">
+                        <div class="flex items-center">
+                            <img src="assets/img/person.png" alt="" class="w-16 h-16 rounded-full ml-4">
+                            <div class="text-xs text-dark font-light block">
+                                <b class="text-sm font-bold block mb-0.5">
+                                    مینا فتحی
+                                </b>
+                                کارمند شرکت خصوصی
+                            </div>
+                        </div>
+                        <div class="w-full h-[1px] bg-natural-alpha block my-3"></div>
+                        <p class="text-sm text-dark-alpha font-light mb-0 block">
+                            انتخاب بروکر برای من خیلی سخت بود. همراهی تیم متازی و پاسخ دادن سوالام باعث شد بتونم از بین انتخاب های زیادی که داشتم، توی بهترین بروکر ثبت نام کنم.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination-testimonial w-full flex justify-center items-center mt-10"></div>
+        </div>
+    </div>
+    <!--START-TESTIMONIAL-->
+
+    <!--START-FAQ-->
+    <div id="faq" class="lg:mb-36 mb-24 relative">
+        <div class="container">
+            <h2 class="lg:text-5xl text-2xl text-white font-bold block text-center mb-10">
+                سوالات متداول
+            </h2>
+            <ul class="accordion-menu m-0 p-0 w-full">
+                <li class="item-accordion rounded-lg bg-natural border border-solid border-white bg-opacity-90 mb-4 last:mb-0">
+                    <div class="dropdownlink lg:p-6 p-4 flex items-start justify-between cursor-pointer">
+                        <div class="text-md font-bold text-dark">
+                            آیا مشاوره رایگان است؟
+                        </div>
+                        <div class="bg-purple w-7 h-7 rounded-lg flex items-center justify-center mr-1 text-white text-sm flex-shrink-0">
+                            <i class="icon-down"></i>
+                        </div>
+                    </div>
+                    <div class="sub-menu lg:p-6 p-4 !pt-0" style="display: none">
+                        <p class="lg:text-md text-base font-medium block mb-0 text-dark-alpha">
+                            جلسه اول مشاوره برای  کلیه افراد کاملاً رایگان است. اما بدلیل هزینه‌های نیروی انسانی برای جلسات بعدی هزینه دریافت می‌گردد.
+                        </p>
+                    </div>
+
+                </li>
+                <li class="item-accordion rounded-lg bg-natural border border-solid border-white bg-opacity-90 mb-4 last:mb-0">
+                    <div class="dropdownlink lg:p-6 p-4 flex items-start justify-between cursor-pointer">
+                        <div class="text-md font-bold text-dark">
+                            چگونه پس از مشاوره به اطلاعات و لینک‌های مرتبط دسترسی پیدا کنم؟
+                        </div>
+                        <div class="bg-purple w-7 h-7 rounded-lg flex items-center justify-center mr-1 text-white text-sm flex-shrink-0">
+                            <i class="icon-down"></i>
+                        </div>
+                    </div>
+                    <div class="sub-menu lg:p-6 p-4 !pt-0" style="display: none">
+                        <p class="lg:text-md text-base font-medium block mb-0 text-dark-alpha">
+                            پس از مشاوره، مشاوران لینک‌ها و اطلاعات مرتبط را برای شما ارسال می‌کنند تا به راحتی به آنها دسترسی داشته باشید.
+                        </p>
+                    </div>
+
+                </li>
+                <li class="item-accordion rounded-lg bg-natural border border-solid border-white bg-opacity-90 mb-4 last:mb-0">
+                    <div class="dropdownlink lg:p-6 p-4 flex items-start justify-between cursor-pointer">
+                        <div class="text-md font-bold text-dark">
+                            آیا می‌توانم از خدمات شما برای آموزش در مورد ترید استفاده کنم؟
+                        </div>
+                        <div class="bg-purple w-7 h-7 rounded-lg flex items-center justify-center mr-1 text-white text-sm flex-shrink-0">
+                            <i class="icon-down"></i>
+                        </div>
+                    </div>
+                    <div class="sub-menu lg:p-6 p-4 !pt-0" style="display: none">
+                        <p class="lg:text-md text-base font-medium block mb-0 text-dark-alpha">
+                            بله، ما اطلاعات آموزشی در آکادمی خود ارائه می‌دهیم که به شما کمک می‌کند تا در بازار فارکس بهترین تصمیم‌ها را بگیرید.
+                        </p>
+                    </div>
+
+                </li>
+                <li class="item-accordion rounded-lg bg-natural border border-solid border-white bg-opacity-90 mb-4 last:mb-0">
+                    <div class="dropdownlink lg:p-6 p-4 flex items-start justify-between cursor-pointer">
+                        <div class="text-md font-bold text-dark">
+                            چگونه می‌توانم با مشاوران تماس بگیرم؟
+                        </div>
+                        <div class="bg-purple w-7 h-7 rounded-lg flex items-center justify-center mr-1 text-white text-sm flex-shrink-0">
+                            <i class="icon-down"></i>
+                        </div>
+                    </div>
+                    <div class="sub-menu lg:p-6 p-4 !pt-0" style="display: none">
+                        <p class="lg:text-md text-base font-medium block mb-0 text-dark-alpha">
+                            پس از ثبت نام، مشاوران با شما تماس خواهند گرفت و به سوالات شما پاسخ خواهند داد.
+                        </p>
+                    </div>
+
+                </li>
+                <li class="item-accordion rounded-lg bg-natural border border-solid border-white bg-opacity-90 mb-4 last:mb-0">
+                    <div class="dropdownlink lg:p-6 p-4 flex items-start justify-between cursor-pointer">
+                        <div class="text-md font-bold text-dark">
+                            چگونه می‌توانم از خدمات متازی در تصمیم‌گیری برای سرمایه‌گذاری بهتر استفاده کنم؟
+                        </div>
+                        <div class="bg-purple w-7 h-7 rounded-lg flex items-center justify-center mr-1 text-white text-sm flex-shrink-0">
+                            <i class="icon-down"></i>
+                        </div>
+                    </div>
+                    <div class="sub-menu lg:p-6 p-4 !pt-0" style="display: none">
+                        <p class="lg:text-md text-base font-medium block mb-0 text-dark-alpha">
+                            با درخواست مشاوره رایگان، ما به شما کمک خواهیم کرد تا بازار فارکس را بهتر بشناسید و بهترین تصمیمات را در سرمایه‌گذاری بگیرید.
+                        </p>
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <!--START-FAQ-->
+</main>
+<!--END-MAIN-->
+
+<!--START-FOOTER-->
+<footer class="py-5 bg-gra-main-slide">
+    <div class="container flex items-center lg:justify-between justify-center max-md:flex-col">
+        <article class="md:max-w-[380px] w-full max-md:order-1 w-full max-md:mt-5 max-md:text-center">
+            <h2 class="text-lg font-bold text-white block mb-2">
+                معرفی کوتاه از متازی
+            </h2>
+            <p class="text-sm text-white font-medium block mb-0 md:text-justify text-center">
+                فعالیت در بازارهای مالی برای تریدرها به قدر کافی ریسک دارد.این ریسک برای تریدرهای ایرانی که به بروکرهای درجه 1 دسترسی ندارند بیشتر هم است و بهتر است تریدرها هنگام انتخاب بروکر، خیلی با حساسیت زیادی عمل بکنند و داخل هر بروکری ترید نکنند. تیم متازی با  مطالعه شرایط و  قوانین روز، متناسب با نیاز هر نفر بهترین بروکر را معرفی می‌کند
+            </p>
+        </article>
+        <a href="" class="block">
+            <img src="assets/img/logo.png" alt="" class="lg:max-h-[40px] max-h-[30px]">
+        </a>
+    </div>
+</footer>
+<!--END-FOOTER-->
+
+
+
+
+
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/swiper/swiper.min.js"></script>
+<script src="assets/js/countdown/jquery.countdown.js"></script>
+<script src="assets/js/public.js"></script>
+</body>
+</html>
