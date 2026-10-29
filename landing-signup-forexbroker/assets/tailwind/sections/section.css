@@ -1,0 +1,128 @@
+.header-nav-item:after {
+    @apply content-[""] absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2
+    h-5 w-[1px] rounded-full bg-white opacity-50
+}
+.header-nav-item a {
+    @apply opacity-100 transition-all
+}
+header nav:hover a {
+    @apply opacity-50
+}
+.header-nav-item a:hover {
+    @apply !opacity-100
+}
+
+.main-slide-title-inner {
+    @apply relative z-10
+}
+.main-slide-title-inner:before {
+    @apply content-[""] absolute bottom-2 right-0 w-full h-[14px] bg-info rounded-full -z-10
+}
+
+
+
+.btn-modern {
+    @apply text-base text-white font-bold rounded-2xl bg-info flex items-center h-11 pr-4 mr-auto w-fit transition-all hover:bg-info-dark
+}
+.btn-modern-icon {
+    @apply w-11 h-11 flex items-center justify-center mr-4 bg-white bg-opacity-[0.15] rounded-2xl
+}
+
+
+
+.main-slide-circle-1 {
+    border-radius: 100%;
+    background: rgba(61, 127, 194, 0.50);
+    width: 290px;
+    height: 300px;
+    transform: rotate(-66.719deg);
+    flex-shrink: 0;
+    filter: blur(25px);
+    @apply absolute lg:top-1/2 -top-20 lg:left-0 left-1/2 transform lg:-translate-y-1/2 lg:mt-5 max-lg:-translate-x-1/2
+    lg:w-[290px] lg:h-[300px] w-[260px] h-[260px]
+}
+
+
+.main-slide-circle-2 {
+    border-radius: 100%;
+    background: rgba(61, 127, 194, 1);
+    width: 44px;
+    height: 44px;
+    transform: rotate(-66.719deg);
+    flex-shrink: 0;
+    filter: blur(20px);
+    @apply absolute top-8 right-52  max-lg:hidden
+}
+
+
+.pagination-testimonial .swiper-pagination-bullet {
+    @apply w-3 h-3 rounded-full !opacity-50 !bg-white mx-4
+}
+.pagination-testimonial .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    @apply !opacity-100
+}
+
+
+.btn {
+    @apply relative bg-danger p-3 rounded-full flex items-center justify-center w-fit mx-auto text-base font-extrabold text-white
+    transition-all hover:bg-danger-dark
+}
+.btn.btn-warning {
+    @apply bg-warning hover:bg-warning-dark
+}
+.btn:before {
+    @apply content-[""] absolute top-1/2 right-1/2 -translate-y-1/2  translate-x-1/2 border border-solid border-white rounded-full
+    w-[calc(100%+8px)] h-[calc(100%+8px)]
+}
+.btn img {
+    @apply mr-3
+}
+
+
+
+.form-group {
+    @apply relative w-full
+}
+.form-group-input {
+    @apply h-11 w-full text-[15px] text-white font-light placeholder-white pr-10;
+    border-radius: 10px;
+    border: 1px solid rgba(174, 184, 213, 0.40);
+    background: rgba(255, 255, 255, 0.23);
+}
+.form-group-icon {
+    @apply text-xl text-white absolute top-1/2 -translate-y-1/2 right-2.5 ml-2.5
+}
+.form-group-btn {
+    @apply h-11 w-full text-md text-white bg-info font-medium placeholder-white mt-1
+    transition-all hover:bg-info-dark;
+    border-radius: 10px;
+}
+
+
+
+
+.timer {
+    @apply flex w-[calc(100%-93px)]
+}
+.timer b {
+    @apply xl:w-[70px] w-[54px] xl:h-[70px] h-[54px] rounded-xl bg-danger flex items-center justify-center
+    xl:text-[46px] text-[32px] text-white font-bold mb-1.5 pt-2.5
+}
+.timer .time {
+    @apply text-lg text-danger font-bold text-center
+}
+.timer .time-dots {
+    @apply xl:text-[60px] text-[40px] text-danger font-bold leading-[0.5] mx-auto pt-[23px]
+}
+
+
+@media screen and (max-height: 570px) {
+    .modal .container {
+        @apply !block
+    }
+}
+
+
+.why-item:after {
+    @apply content-[""] absolute top-0 right-0 w-full h-full rounded-[30px] border border-solid border-white border-opacity-20
+}

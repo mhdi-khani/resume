@@ -1,0 +1,32 @@
+/* GENERIC */
+@import "generic/font.css";
+@import "generic/font-icon.css";
+
+/* SECTIONS */
+@import "sections/section.css";
+
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+    body  {
+        @apply font-["peyda"] overflow-x-clip text-right;
+        direction: rtl;
+    }
+    button {
+        @apply cursor-pointer
+    }
+
+    .container {
+        @apply xl:!max-w-[1232px]
+    }
+}
+
+
+
+
+
