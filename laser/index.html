@@ -200,10 +200,189 @@
 .results-photo-caption i{margin-left:7px;color:var(--accent-deep)}
 @media(max-width:959px){.results-grid{gap:18px}.results-head-deco{display:none}.luxe-compare .compare-photo{aspect-ratio:5/4}}
 @media(max-width:639px){.results .results-grid{grid-template-columns:1fr}.luxe-compare .compare-photo{aspect-ratio:5/4}.luxe-compare .compare-body{padding:21px}.results-photo-caption{text-align:right}}
+
+/* Accessible mobile carousel: horizontal gestures do not accidentally scroll the page */
+.services-controls{display:none}
+.service-img[type="button"]{display:block;width:100%;padding:0;border:0;text-align:inherit;cursor:pointer}
+@media (max-width:959px){
+  .services-grid{
+    touch-action:auto;
+    overscroll-behavior-x:contain;
+    overscroll-behavior-y:auto;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    padding-bottom:10px;
+  }
+  .services-grid::-webkit-scrollbar{display:none}
+  .service-card{scroll-snap-stop:always}
+  .tabs{touch-action:auto;overscroll-behavior-x:contain;overscroll-behavior-y:auto}
+  .services-controls{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:15px;margin:0 2px 14px;
+  }
+  .services-counter{font-size:12px;color:var(--text-soft);font-variant-numeric:tabular-nums}
+  .services-control-buttons{display:flex;align-items:center;gap:9px}
+  .services-arrow{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;
+    background:var(--surface);color:var(--text);border:1px solid var(--line);
+    transition:background .2s,opacity .2s}
+  .services-arrow:active:not(:disabled){background:var(--bg-alt)}
+  .services-arrow:disabled{opacity:.3;cursor:default}
+}
+
+
+/* ========================================================================
+   RAMI — Silk Motion System | elegant, soft, motion-safe, compositor-first
+   ======================================================================== */
+:root{--silk-ease:cubic-bezier(.22,1,.36,1);--silk-soft:cubic-bezier(.25,.46,.3,1)}
+/* Entrance reveal, used for both in-document content and items generated in JS */
+html.motion-ready [data-reveal]{
+ opacity:0;translate:0 0;transition-property:opacity,transform,filter,clip-path;
+ transition-duration:1.05s,1.18s,1.1s,1.25s;
+ transition-timing-function:var(--silk-ease);transition-delay:calc(var(--i,0)*85ms)
+}
+html.motion-ready [data-reveal="up"]{transform:translate3d(0,28px,0)}
+html.motion-ready [data-reveal="scale"]{transform:translate3d(0,15px,0) scale(.975)}
+html.motion-ready [data-reveal="blur"]{transform:translate3d(0,16px,0);filter:blur(7px)}
+html.motion-ready [data-reveal="mask"]{transform:translate3d(0,18px,0);clip-path:inset(9% 0 13% 0 round 22px)}
+html.motion-ready [data-reveal].revealed{opacity:1;transform:none;filter:none;clip-path:inset(0 0 0 0 round 0)}
+html.motion-ready [data-motion]{
+ opacity:0;translate:0 25px;
+ transition-property:opacity,translate;
+ transition-duration:.98s,1.08s;
+ transition-timing-function:var(--silk-ease);
+ transition-delay:calc(var(--motion-order,0)*85ms)
+}
+html.motion-ready [data-motion="soft"]{translate:0 13px}
+html.motion-ready [data-motion="image"]{translate:0 19px}
+html.motion-ready [data-motion="service"]{translate:0 22px}
+html.motion-ready [data-motion].motion-shown{opacity:1;translate:0 0}
+/* Header glides into place only once; do not animate the fixed header itself. */
+html.motion-ready .header-row>*{opacity:0;translate:0 -12px;transition:opacity .9s var(--silk-ease),translate 1s var(--silk-ease)}
+html.motion-ready.page-settled .header-row>*{opacity:1;translate:0 0}
+html.motion-ready .header-row>.brand{transition-delay:.06s}
+html.motion-ready .header-row>.nav-links{transition-delay:.19s}
+html.motion-ready .header-row>.header-cta,html.motion-ready .header-row>.menu-btn{transition-delay:.3s}
+html.motion-ready .hero [data-reveal]{transition-delay:calc(.12s + var(--i,0)*.135s);transition-duration:1.12s}
+html.motion-ready .hero .hero-visual[data-reveal]{transition-delay:.3s;transition-duration:1.5s}
+/* The hero photograph opens from the bottom; the inset image follows gently. */
+html.motion-ready .hero-arch{
+ clip-path:inset(0 0 100% 0 round 280px 280px 24px 24px);
+ transform:translateY(25px) scale(1.02);
+ transition:clip-path 1.7s var(--silk-ease) .45s,transform 1.6s var(--silk-ease) .45s
+}
+html.motion-ready .hero-visual.revealed .hero-arch{
+ clip-path:inset(0 0 0 0 round 280px 280px 24px 24px);transform:none
+}
+html.motion-ready .hero-mini{opacity:0;transform:translate(-18px,22px) scale(.95);transition:opacity 1s var(--silk-ease) .85s,transform 1.4s var(--silk-ease) .85s}
+html.motion-ready .hero-visual.revealed .hero-mini{opacity:1;transform:none}
+html.motion-ready .hero-sticker{opacity:0;transform:translateY(12px);transition:opacity .9s var(--silk-ease) 1.1s,transform .95s var(--silk-ease) 1.1s}
+html.motion-ready .hero-visual.revealed .hero-sticker{opacity:1;transform:none}
+html.motion-ready .hero-halo{opacity:0;transform:rotate(-12deg) scale(.94);transition:opacity 1.1s ease .45s,transform 1.6s var(--silk-ease) .45s}
+html.motion-ready .hero-visual.revealed .hero-halo{opacity:1;transform:rotate(-7deg)}
+html.motion-ready .hero-round{animation-duration:10s}
+html.motion-ready .hero-trust.revealed>div{animation:ramiTrustEnter .9s both var(--silk-ease)}
+html.motion-ready .hero-trust.revealed>div:nth-child(2){animation-delay:.13s}
+html.motion-ready .hero-trust.revealed>div:nth-child(3){animation-delay:.26s}
+@keyframes ramiTrustEnter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+/* Small detailing adds polish without competing with the content. */
+html.motion-ready .eyebrow::before{transform-origin:right center;transform:scaleX(.35);opacity:.35;transition:transform 1.1s var(--silk-ease) .25s,opacity 1.1s ease .25s}
+html.motion-ready .eyebrow.revealed::before,html.motion-ready .motion-shown .eyebrow::before,html.motion-ready .revealed .eyebrow::before{transform:scaleX(1);opacity:1}
+html.motion-ready .btn{transition:transform .4s var(--silk-ease),background .45s,border-color .45s,box-shadow .45s}
+@media(hover:hover){
+ html.motion-ready .btn:hover{transform:translateY(-2px)}
+ html.motion-ready .btn:active{transform:scale(.98)}
+ html.motion-ready .gallery-btn:hover img{transform:scale(1.045)}
+ html.motion-ready .service-card:hover{box-shadow:0 23px 58px rgba(115,80,54,.135)}
+}
+html.motion-ready .tabs .tab{transition:background .3s,border-color .3s,color .3s}
+html.motion-ready .results-action{transition:box-shadow .6s var(--silk-ease)}
+html.motion-ready .results-action.revealed{box-shadow:0 14px 44px rgba(110,82,53,.07)}
+/* Move only the photo pixels, never sliders, calendar or touch targets. */
+@media(min-width:960px){
+ html.motion-ready .ambient-photo{transform:translate3d(0,var(--photo-shift,0px),0) scale(1.08);will-change:transform}
+}
+/* Mobile: the services carousel must remain instantly usable, including
+   off-screen cards and when filters change. Animate the rail, not its cards. */
+@media(max-width:959px){
+ html.motion-ready #servicesGrid .service-card[data-motion]{opacity:1;translate:none;transition-property:box-shadow,border-color;transition-duration:.3s;transition-delay:0s}
+ html.motion-ready #servicesGrid{transition-duration:.75s,.8s}
+ html.motion-ready .hero [data-reveal]{transition-duration:.9s}
+ html.motion-ready .hero-arch{transition-duration:1.25s}
+ html.motion-ready .hero-mini{transition-duration:1s}
+ html.motion-ready .header-row>*{transition-duration:.7s}
+}
+@media(prefers-reduced-motion:reduce){
+ html.motion-ready [data-reveal],html.motion-ready [data-motion],
+ html.motion-ready .header-row>*,html.motion-ready .hero-arch,
+ html.motion-ready .hero-mini,html.motion-ready .hero-sticker,
+ html.motion-ready .hero-halo,html.motion-ready .eyebrow::before{
+  opacity:1!important;transform:none!important;translate:none!important;clip-path:none!important;filter:none!important;transition:none!important;animation:none!important
+ }
+ html.motion-ready .hero-trust.revealed>div{animation:none!important}
+ html.motion-ready .ambient-photo{transform:none!important}
+}
+
+/* v6 | Gentle repeat reveals on revisiting a section while scrolling in either direction.
+   Always leave already-seen content readable; no fade-to-zero or scroll pinning. */
+@keyframes ramiReturnFromBelow{
+ from{opacity:.83;translate:0 12px;filter:brightness(.985)}
+ to{opacity:1;translate:0 0;filter:brightness(1)}
+}
+@keyframes ramiReturnFromAbove{
+ from{opacity:.86;translate:0 -10px;filter:brightness(.985)}
+ to{opacity:1;translate:0 0;filter:brightness(1)}
+}
+html.motion-ready [data-reveal].motion-revisit-down,
+html.motion-ready [data-motion].motion-revisit-down{
+ animation:ramiReturnFromBelow .78s var(--silk-ease) both;
+}
+html.motion-ready [data-reveal].motion-revisit-up,
+html.motion-ready [data-motion].motion-revisit-up{
+ animation:ramiReturnFromAbove .72s var(--silk-ease) both;
+}
+@media (max-width:959px){
+ /* Native touch panning chooses the gesture's dominant axis: page for vertical,
+    horizontal carousel only for horizontal swipes. No JS gesture capture. */
+ .services-grid,.tabs{touch-action:auto!important;overscroll-behavior-y:auto}
+ /* Keep the carousel's scroll offset and hit targets stable on return visits. */
+ html.motion-ready #servicesGrid.motion-revisit-down,
+ html.motion-ready #servicesGrid.motion-revisit-up,
+ html.motion-ready #servicesControls.motion-revisit-down,
+ html.motion-ready #servicesControls.motion-revisit-up{animation:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html.motion-ready .motion-revisit-down,html.motion-ready .motion-revisit-up{animation:none!important}
+}
+
+/* 13 — Quiet luxury opening screen. Independent of external fonts & assets. */
+body.rami-preloading{overflow:hidden}
+.rami-preloader{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;overflow:hidden;background:#fbf7f2;color:#2b2420;opacity:1;visibility:visible;transition:opacity .62s cubic-bezier(.22,1,.36,1),visibility .62s;isolation:isolate}
+.rami-preloader::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#f4e8dc 0%,#fbf7f2 65%);pointer-events:none}
+.rami-preloader.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+.rami-loader-content{position:relative;display:flex;flex-direction:column;align-items:center;gap:0;text-align:center;transform:translateY(-5px)}
+.rami-loader-monogram{width:78px;height:88px;display:grid;place-items:center;border:1px solid #c3a77d;border-radius:48px 48px 15px 15px;background:rgba(255,253,250,.64);font:normal 49px/.95 Georgia,serif;color:#9c7852;box-shadow:0 13px 42px rgba(150,115,77,.075);animation:rami-loader-rise 1s cubic-bezier(.16,1,.3,1) both}
+.rami-loader-title{font:600 25px/1.6 Vazirmatn,Tahoma,sans-serif;letter-spacing:-.025em;margin-top:22px;animation:rami-loader-reveal .85s .14s both}
+.rami-loader-sub{font:11px/1.9 Georgia,serif;direction:ltr;letter-spacing:.2em;color:#927654;margin-top:0;animation:rami-loader-reveal .85s .24s both}
+.rami-loader-track{width:126px;height:1px;margin-top:27px;overflow:hidden;background:rgba(156,120,82,.23);animation:rami-loader-reveal .8s .35s both}
+.rami-loader-track::before{content:"";display:block;width:100%;height:100%;background:linear-gradient(90deg,#ae8d67,#d4b990);transform:translateX(100%);animation:rami-loader-progress 1.45s cubic-bezier(.7,0,.3,1) .1s infinite}
+@keyframes rami-loader-rise{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes rami-loader-reveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes rami-loader-progress{0%{transform:translateX(105%)}60%{transform:translateX(-5%)}100%{transform:translateX(-105%)}}
+@media(prefers-reduced-motion:reduce){.rami-preloader{transition:none!important}.rami-loader-monogram,.rami-loader-title,.rami-loader-sub,.rami-loader-track,.rami-loader-track::before{animation:none!important;opacity:1!important;transform:none!important}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalClinic","name":"لیزر رامی","description":"خدمات مراقبت از پوست و مو شامل لیزر موهای زائد، فیلر لب، فیشال، مزوتراپی، PRP و کاشت مو","telephone":"+989135610285","address":{"@type":"PostalAddress","addressLocality":"اصفهان","streetAddress":"خیابان شریعتی","addressCountry":"IR"},"sameAs":["https://instagram.com/laser_rami"],"hasMap":"https://maps.app.goo.gl/ag9jJH9QLuT9iZLZ7?g_st=ac"}</script>
+<noscript><style>body.rami-preloading{overflow:auto!important}#ramiPreloader{display:none!important}</style></noscript>
 </head>
-<body>
+<body class="rami-preloading">
+<div class="rami-preloader" id="ramiPreloader" role="status" aria-label="در حال بارگذاری لیزر رامی">
+  <div class="rami-loader-content">
+    <div class="rami-loader-monogram" aria-hidden="true">R</div>
+    <div class="rami-loader-title">لیزر رامی</div>
+    <div class="rami-loader-sub">RAMI BEAUTY &amp; CARE</div>
+    <div class="rami-loader-track" aria-hidden="true"></div>
+  </div>
+</div>
 <a href="#main" class="skip">رفتن به محتوای اصلی</a>
 <div class="utility"><div class="container utility-inner"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i>اصفهان، خیابان شریعتی</span><div class="utility-links"><a href="tel:+989135610285"><i class="fa-solid fa-phone" aria-hidden="true"></i><span class="ltr">۰۹۱۳ ۵۶۱ ۰۲۸۵</span></a><a href="https://instagram.com/laser_rami" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-instagram" aria-hidden="true"></i>اینستاگرام</a></div></div></div>
 <header class="header" id="header"><div class="container header-row"><a class="brand" href="#home" aria-label="صفحه اصلی لیزر رامی"><span class="brand-mark" aria-hidden="true">R</span><span><span class="brand-name" style="display:block">لیزر رامی</span><span class="brand-sub">RAMI BEAUTY &amp; CARE</span></span></a><nav class="nav-links" aria-label="منوی اصلی"><a href="#home">خانه</a><a href="#services">خدمات</a><a href="#results">نگاهی به خدمات</a><a href="#about">درباره ما</a><a href="#doctor">پزشک</a><a href="#contact">تماس</a></nav><a class="btn btn-primary header-cta" href="#booking">درخواست مشاوره <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a><button class="menu-btn" id="menuToggle" aria-label="بازکردن منو" aria-controls="mobileNav" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button></div><div class="progress" id="scrollProgress" aria-hidden="true"></div></header>
@@ -211,7 +390,7 @@
 <main id="main">
 <section class="hero" id="home"><div class="container hero-grid"><div class="hero-content"><span class="eyebrow" data-reveal="up">RAMI · مراقبت آگاهانه از زیبایی</span><h1 data-reveal="up" style="--i:1">لیزر موهای زائد<br><span class="gold-text hero-service">و خدمات تخصصی پوست و مو</span><br><span class="hero-city">در اصفهان</span></h1><p class="hero-text" data-reveal="up" style="--i:2">از لیزر موهای زائد با دستگاه کندلا تا فیشال و خدمات تخصصی پوست و مو؛ در رامی، انتخاب هر خدمت با شناخت نیاز شما و مشاوره آغاز می‌شود.</p><div class="hero-actions" data-reveal="up" style="--i:3"><a href="#booking" class="btn btn-primary">درخواست مشاوره <i class="fa-solid fa-arrow-left"></i></a><a href="https://wa.me/989135610285?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%88%D9%82%D8%AA%20%D8%A8%D8%AE%DB%8C%D8%B1.%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%AF%D8%B1%DB%8C%D8%A7%D9%81%D8%AA%20%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%20%D8%AF%D8%B1%D8%A8%D8%A7%D8%B1%D9%87%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D9%84%DB%8C%D8%B2%D8%B1%20%D8%B1%D8%A7%D9%85%DB%8C%20%D9%88%20%D9%87%D9%85%D8%A7%D9%87%D9%86%DA%AF%DB%8C%20%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%E2%80%8C%D8%AF%D9%87%D9%85.%20%D9%84%D8%B7%D9%81%D8%A7%D9%8B%20%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7%DB%8C%DB%8C%20%D8%A8%D9%81%D8%B1%D9%85%D8%A7%DB%8C%DB%8C%D8%AF." class="btn btn-outline" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> گفت‌وگو در واتساپ</a></div><div class="hero-trust" data-reveal="up" style="--i:4"><div><strong><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></strong><span>لیزر با دستگاه کندلا</span></div><div><strong><span data-count="6">۶</span></strong><span>حوزه خدمات</span></div><div><strong><i class="fa-solid fa-heart" style="font-size:20px;color:var(--accent-deep)"></i></strong><span>توجه به نیاز هر فرد</span></div></div></div><div class="hero-visual" data-reveal="scale"><div class="hero-halo"></div><div class="arch hero-arch"><img fetchpriority="high" width="640" height="820" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=960&amp;q=85" alt="چهره و زیبایی طبیعی پوست"><span class="media-overlay"></span></div><div class="hero-mini"><img loading="lazy" decoding="async" width="300" height="400" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&amp;fit=crop&amp;w=480&amp;q=80" alt="فضای آرام مراقبت از پوست"></div><div class="hero-sticker glass"><i class="fa-solid fa-sparkles"></i> مراقبت با ظرافت و توجه</div><div class="hero-round"><span><i class="fa-solid fa-leaf" aria-hidden="true"></i> YOUR<br> BEAUTY<br> MOMENT</span></div></div></div></section>
 <div class="marquee" aria-label="خدمات کلینیک"><div class="marquee-track" id="marqueeTrack"><div class="marquee-item">لیزر موهای زائد</div><div class="marquee-item">فیشال و مراقبت پوست</div><div class="marquee-item">فیلر لب</div><div class="marquee-item">مزوتراپی</div><div class="marquee-item">پی‌آرپی</div><div class="marquee-item">کاشت مو</div><div class="marquee-item" aria-hidden="true">لیزر موهای زائد</div><div class="marquee-item" aria-hidden="true">فیشال و مراقبت پوست</div><div class="marquee-item" aria-hidden="true">فیلر لب</div><div class="marquee-item" aria-hidden="true">مزوتراپی</div><div class="marquee-item" aria-hidden="true">پی‌آرپی</div><div class="marquee-item" aria-hidden="true">کاشت مو</div></div></div>
-<section class="section services" id="services"><div class="container"><div class="section-head"><div><span class="eyebrow" data-reveal="up">انتخاب آگاهانه، زیبایی متناسب</span><h2 class="section-title" data-reveal="up">خدمات رامی، برای <span class="gold-text">شما</span></h2><p class="section-intro" data-reveal="up">از مراقبت روزمره پوست تا روش‌های تخصصی پوست و مو، هر خدمت پس از بررسی شرایط و انتظارات شما پیشنهاد می‌شود.</p></div><span class="line-art" aria-hidden="true">✧</span></div><div class="tabs" id="serviceTabs" role="tablist" aria-label="دسته‌بندی خدمات"><button class="tab" type="button" role="tab" aria-selected="true" data-category="all">همه خدمات</button><button class="tab" type="button" role="tab" aria-selected="false" data-category="laser">لیزر</button><button class="tab" type="button" role="tab" aria-selected="false" data-category="skin">پوست و جوان‌سازی</button><button class="tab" type="button" role="tab" aria-selected="false" data-category="hair">مو</button></div><div class="services-grid" id="servicesGrid" aria-live="polite"></div></div></section>
+<section class="section services" id="services"><div class="container"><div class="section-head"><div><span class="eyebrow" data-reveal="up">انتخاب آگاهانه، زیبایی متناسب</span><h2 class="section-title" data-reveal="up">خدمات رامی، برای <span class="gold-text">شما</span></h2><p class="section-intro" data-reveal="up">از مراقبت روزمره پوست تا روش‌های تخصصی پوست و مو، هر خدمت پس از بررسی شرایط و انتظارات شما پیشنهاد می‌شود.</p></div><span class="line-art" aria-hidden="true">✧</span></div><div class="tabs" id="serviceTabs" role="tablist" aria-label="دسته‌بندی خدمات"><button class="tab" type="button" role="tab" aria-selected="true" data-category="all">همه خدمات</button><button class="tab" type="button" role="tab" aria-selected="false" data-category="laser">لیزر</button><button class="tab" type="button" role="tab" aria-selected="false" data-category="skin">پوست و جوان‌سازی</button><button class="tab" type="button" role="tab" aria-selected="false" data-category="hair">مو</button></div><div class="services-controls" id="servicesControls" aria-label="کنترل نمایش خدمات"><span class="services-counter" id="servicesCounter" aria-live="polite">۱ از ۶ خدمت</span><div class="services-control-buttons"><button type="button" class="services-arrow" id="servicesPrev" aria-label="خدمت قبلی"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><button type="button" class="services-arrow" id="servicesNext" aria-label="خدمت بعدی"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button></div></div><div class="services-grid" id="servicesGrid" aria-live="polite"></div></div></section>
 <section class="section results" id="results"><div class="container"><div class="section-head results-top"><div class="results-heading"><span class="eyebrow" data-reveal="up">جزئیات زیبایی را لمس کنید</span><h2 class="section-title" data-reveal="up">تفاوت را <span class="gold-text">از نزدیک ببینید</span></h2><p class="section-intro" data-reveal="up">هر تغییر از توجه به جزئیات آغاز می‌شود. دستگیره روی تصاویر را جابه‌جا کنید و تفاوت ظاهر پوست و مو را در سه تجربه بصری ببینید.</p></div><div class="results-head-deco" aria-hidden="true"><span>BEFORE</span><i class="fa-solid fa-arrows-left-right"></i><span>AFTER</span></div></div><div class="results-grid" id="resultsGrid"></div><p class="results-photo-caption"><i class="fa-regular fa-circle-info" aria-hidden="true"></i> این مقایسه‌ها تصویرسازی مفهومی هستند، نه عکس واقعی نتیجه درمان. نتیجه هر خدمت با توجه به شرایط فردی متفاوت است.</p><div class="results-action" data-reveal="up"><div><strong>برای پوست و موی شما چه روشی مناسب‌تر است؟</strong><p>از یک گفت‌وگوی تخصصی شروع کنید؛ انتخاب آگاهانه، اولین قدم زیبایی است.</p></div><a class="btn btn-primary" href="#booking">درخواست مشاوره <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a></div><div class="gallery-heading"><span class="eyebrow">نگاهی به دنیای مراقبت</span><h3>پوست سالم، توجه به جزئیات</h3></div><div class="gallery" id="galleryGrid" aria-label="تصاویر مرتبط با مراقبت پوست و مو"></div></div></section>
 <section class="section about" id="about"><div class="container split"><div class="about-images" data-reveal="mask"><div class="arch about-photo a"><img loading="lazy" decoding="async" width="600" height="850" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&amp;fit=crop&amp;w=780&amp;q=80" alt="فضای آرام مراقبت از پوست"></div><div class="about-photo b"><img loading="lazy" decoding="async" width="410" height="440" src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="محصولات مراقبت پوست"></div><div class="about-ornament" aria-hidden="true">✳</div></div><div class="about-copy"><span class="eyebrow" data-reveal="up">داستان رامی</span><h2 class="section-title" data-reveal="up">زیبایی، در <span class="gold-text">هماهنگی با شما</span></h2><p class="section-intro" data-reveal="up">در لیزر رامی، باور داریم مراقبت زیبایی زمانی ارزشمندتر است که با شناخت دقیق نیازها، احترام به ویژگی‌های فردی و انتخاب آگاهانه همراه باشد. به همین دلیل، به‌جای توصیه یک راه‌حل مشابه برای همه، بر گفت‌وگو و ارزیابی متناسب با هر فرد تأکید می‌کنیم.</p><blockquote data-reveal="up">«مراقبت خوب، با شنیدن آغاز می‌شود.»</blockquote><p class="muted">در اصفهان، خیابان شریعتی، برای آشنایی با خدمات لیزر، پوست و مو در کنار شما هستیم.</p><div class="assurances"><span class="chip"><i class="fa-solid fa-user-doctor"></i>&nbsp; ارزیابی تخصصی</span><span class="chip"><i class="fa-solid fa-shield-heart"></i>&nbsp; توجه به اصول بهداشتی</span><span class="chip"><i class="fa-solid fa-clipboard-check"></i>&nbsp; انتخاب متناسب با فرد</span><span class="chip"><i class="fa-solid fa-lock"></i>&nbsp; احترام به حریم خصوصی</span></div></div></div></section>
 <section class="section doctor" id="doctor"><div class="container"><div class="section-head"><div><span class="eyebrow">ارزیابی پیش از انتخاب خدمات</span><h2 class="section-title">آشنایی با <span class="gold-text">پزشک مجموعه</span></h2></div></div><div class="doctor-feature" data-reveal="up"><div class="doctor-photo"><img id="doctorPhoto" loading="lazy" decoding="async" width="600" height="720" src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="فضای مراقبت و مشاوره پوست و مو"><div class="doctor-photo-overlay"><i class="fa-solid fa-stethoscope" aria-hidden="true"></i><span>مشاوره پیش از انتخاب خدمت</span></div></div><div class="doctor-details"><span class="eyebrow">همراه شما در انتخاب آگاهانه</span><h3 id="doctorFullName" class="doctor-name" style="font-size:clamp(30px,4vw,49px);font-weight:350">دکتر شریعتی</h3><p id="doctorSpecialty" class="doctor-specialty">مشاوره و ارزیابی خدمات پوست و مو</p><p class="muted">پیش از اقدام، درباره ویژگی‌های پوست و مو، انتظارات و گزینه‌های پیش رو گفت‌وگو کنید؛ انتخاب روش مناسب پس از بررسی شرایط فردی و با توجه به ملاحظات پزشکی انجام می‌شود.</p><div class="doctor-credentials" id="doctorCredentials" hidden></div><div class="doctor-care-list"><div><i class="fa-solid fa-circle-check" aria-hidden="true"></i>بررسی نیازها و شرایط فردی</div><div><i class="fa-solid fa-circle-check" aria-hidden="true"></i>توضیح روند خدمات و مراقبت‌ها</div><div><i class="fa-solid fa-circle-check" aria-hidden="true"></i>پاسخ به سؤال‌ها پیش از اقدام</div></div><a href="#booking" class="btn btn-primary" style="margin-top:26px">درخواست مشاوره <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a></div></div></div></section>
@@ -273,10 +452,40 @@ function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':
 function fallbackSVG(label){const s=`<svg xmlns="http://www.w3.org/2000/svg" width="700" height="900" viewBox="0 0 700 900"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f4e8dd"/><stop offset=".52" stop-color="#e9d4ba"/><stop offset="1" stop-color="#c6a582"/></linearGradient></defs><rect width="700" height="900" fill="url(#g)"/><path d="M140 800V350a210 210 0 0 1 420 0v450" stroke="#fff9ec" stroke-width="3" fill="none" opacity=".6"/><path d="M250 700q170-120 190-400M265 625q-80-50-60-118m110 34q100-65 130-138m-76 93q-40-90-13-123" fill="none" stroke="#a98d69" stroke-width="2" opacity=".6"/><circle cx="356" cy="245" r="7" fill="#a98d69"/><text x="350" y="755" font-family="Tahoma,sans-serif" font-size="24" text-anchor="middle" fill="#695241">${escapeHTML(label)}</text><text x="350" y="800" font-family="Georgia,serif" font-size="18" letter-spacing="5" text-anchor="middle" fill="#876747">RAMI</text></svg>`;return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s);}
 function initImages(){const handle=img=>{if(img.dataset.fallback==='true')return;img.dataset.fallback='true';img.src=fallbackSVG(img.alt||'لیزر رامی');};const attach=img=>{img.addEventListener('error',()=>handle(img));if(img.complete&&img.naturalWidth===0)handle(img);};$$('img').forEach(attach);const watch=new MutationObserver(m=>{for(const change of m){for(const node of change.addedNodes){if(node.nodeType!==1)continue;if(node.matches?.('img'))attach(node);node.querySelectorAll?.('img').forEach(attach);}}});watch.observe(document.body,{childList:true,subtree:true});}
 function initServices(){const grid=$('#servicesGrid'),options=$('#serviceOptions');
- grid.innerHTML=SITE_DATA.services.map((s,i)=>`<article class="service-card" data-category="${s.category}" data-reveal="up" style="--i:${i%3}"><div class="service-img"><img loading="lazy" decoding="async" width="400" height="350" src="${pic(s.img,650)}" alt="${escapeHTML(s.alt||'برای '+s.name)}"><span class="service-number">${String(i+1).padStart(2,'0')}</span></div><div class="service-body"><h3>${escapeHTML(s.name)}</h3><p>${escapeHTML(s.description)}</p><div class="service-meta">${s.meta.map(x=>`<span class="chip">${escapeHTML(x)}</span>`).join('')}</div><div class="service-foot"><button type="button" class="more-btn" data-service="${s.id}" aria-label="جزئیات ${escapeHTML(s.name)}">مشاهده جزئیات <i class="fa-solid fa-arrow-left"></i></button><i class="fa-solid ${s.icon}" style="color:var(--accent)"></i></div></div></article>`).join('');
+ grid.innerHTML=SITE_DATA.services.map((s,i)=>`<article class="service-card" data-category="${s.category}" data-motion="service" style="--motion-order:${i%3}"><button type="button" class="service-img" data-service="${s.id}" aria-label="مشاهده جزئیات ${escapeHTML(s.name)}"><img loading="lazy" decoding="async" width="400" height="350" src="${pic(s.img,650)}" alt="${escapeHTML(s.alt||'برای '+s.name)}"><span class="service-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span></button><div class="service-body"><h3>${escapeHTML(s.name)}</h3><p>${escapeHTML(s.description)}</p><div class="service-meta">${s.meta.map(x=>`<span class="chip">${escapeHTML(x)}</span>`).join('')}</div><div class="service-foot"><button type="button" class="more-btn" data-service="${s.id}" aria-label="جزئیات ${escapeHTML(s.name)}">مشاهده جزئیات <i class="fa-solid fa-arrow-left"></i></button><i class="fa-solid ${s.icon}" style="color:var(--accent)"></i></div></div></article>`).join('');
  options.innerHTML=SITE_DATA.services.map(s=>`<label class="multi-option"><input type="checkbox" name="selectedServices" value="${s.id}"><span>${escapeHTML(s.name)}</span></label>`).join('');
- $$('.tab').forEach(tab=>tab.addEventListener('click',()=>{$$('.tab').forEach(t=>t.setAttribute('aria-selected',String(t===tab)));const cat=tab.dataset.category;$$('.service-card').forEach(card=>{card.hidden=cat!=='all'&&card.dataset.category!==cat;});}));
- grid.addEventListener('click',e=>{const btn=e.target.closest('[data-service]');if(btn)openService(btn.dataset.service);});}
+ const prev=$('#servicesPrev'),next=$('#servicesNext'),counter=$('#servicesCounter');
+ const available=()=>Array.from(grid.querySelectorAll('.service-card:not([hidden])'));
+ const currentIndex=()=>{
+   const cards=available();if(!cards.length)return 0;
+   const right=grid.getBoundingClientRect().right;
+   let best=0,distance=Infinity;
+   cards.forEach((card,i)=>{const d=Math.abs(card.getBoundingClientRect().right-right);if(d<distance){distance=d;best=i;}});
+   return best;
+ };
+ const refresh=()=>{
+   const cards=available(),idx=currentIndex();
+   counter.textContent=`${String(idx+1).replace(/[0-9]/g,n=>'۰۱۲۳۴۵۶۷۸۹'[+n])} از ${String(cards.length).replace(/[0-9]/g,n=>'۰۱۲۳۴۵۶۷۸۹'[+n])} خدمت`;
+   prev.disabled=idx===0;next.disabled=idx>=cards.length-1;
+ };
+ const jump=step=>{
+   const cards=available();if(!cards.length)return;
+   const target=cards[Math.max(0,Math.min(cards.length-1,currentIndex()+step))];
+   const delta=target.getBoundingClientRect().right-grid.getBoundingClientRect().right;
+   grid.scrollBy({left:delta,behavior:'smooth'});
+   setTimeout(refresh,450);
+ };
+ prev.addEventListener('click',()=>jump(-1));next.addEventListener('click',()=>jump(1));
+ let frame=0;grid.addEventListener('scroll',()=>{if(!frame)frame=requestAnimationFrame(()=>{frame=0;refresh();});},{passive:true});
+ window.addEventListener('resize',refresh);
+ $$('.tab').forEach(tab=>tab.addEventListener('click',()=>{
+   $$('.tab').forEach(t=>t.setAttribute('aria-selected',String(t===tab)));
+   const cat=tab.dataset.category;
+   $$('.service-card').forEach(card=>{card.hidden=cat!=='all'&&card.dataset.category!==cat;});
+   grid.scrollLeft=0;requestAnimationFrame(refresh);
+ }));
+ grid.addEventListener('click',e=>{const btn=e.target.closest('[data-service]');if(btn)openService(btn.dataset.service);});
+ refresh();}
 function chosenServices(){return $$('input[name="selectedServices"]:checked',$('#serviceOptions')).map(el=>el.value);}
 function updateServices(){const chosen=chosenServices(),selected=SITE_DATA.services.filter(s=>chosen.includes(s.id));const summary=$('#serviceSummary');summary.textContent=selected.length?selected.map(s=>s.name).join('، '):'انتخاب یک یا چند خدمت';summary.className=selected.length?'multi-summary':'multi-placeholder';$('#serviceCount').textContent=selected.length?`${toFa(selected.length)} خدمت انتخاب شده`:'هیچ خدمتی انتخاب نشده';if(selected.length){$('#serviceError').textContent='';$('#serviceSelect').setAttribute('aria-invalid','false');}}
 function selectService(id){const input=$$('[name="selectedServices"]',$('#serviceOptions')).find(x=>x.value===id);if(!input)return;input.checked=true;updateServices();}
@@ -337,7 +546,102 @@ function initFaq(){const list=$('#faqList');list.innerHTML=SITE_DATA.faqs.map((f
 function motionReduced(){return matchMedia('(prefers-reduced-motion: reduce)').matches;}
 function initMenu(){const toggle=$('#menuToggle'),menu=$('#mobileNav');let menuLastFocus=null;const close=()=>{if(!menu.classList.contains('open'))return;menu.classList.remove('open');menu.setAttribute('aria-hidden','true');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','بازکردن منو');$('i',toggle).className='fa-solid fa-bars';document.body.classList.remove('is-locked');menuLastFocus?.focus?.();};toggle.addEventListener('click',()=>{if(menu.classList.contains('open')){close();return;}menuLastFocus=document.activeElement;menu.classList.add('open');menu.setAttribute('aria-hidden','false');toggle.setAttribute('aria-expanded','true');toggle.setAttribute('aria-label','بستن منو');$('i',toggle).className='fa-solid fa-xmark';document.body.classList.add('is-locked');$('a',menu)?.focus();});$$('a',menu).forEach(a=>a.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape')close();if(e.key==='Tab'&&menu.classList.contains('open')){const items=[toggle,...$$('a',menu)];const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});}
 function initHeader(){const header=$('#header'),progress=$('#scrollProgress'),top=$('#backTop');let prevY=window.scrollY,scheduled=false;const update=()=>{const y=window.scrollY;header.classList.toggle('scrolled',y>30);header.classList.toggle('mobile-hidden',innerWidth<960&&y>220&&y>prevY+7&&!$('#mobileNav').classList.contains('open'));const h=document.documentElement;progress.style.width=(Math.min(100,y/Math.max(1,h.scrollHeight-h.clientHeight)*100))+'%';top.classList.toggle('show',y>500);prevY=y;scheduled=false;};window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update);}},{passive:true});update();top.addEventListener('click',()=>window.scrollTo({top:0,behavior:motionReduced()?'auto':'smooth'}));const items=$$('.nav-links a');if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){items.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));}});},{rootMargin:'-20% 0px -70% 0px'});$$('main section[id]').forEach(x=>observer.observe(x));}}
-function initReveal(){if(motionReduced()||!('IntersectionObserver'in window)){$$('[data-reveal]').forEach(x=>x.classList.add('revealed'));return;}const obs=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target);}}},{threshold:.15,rootMargin:'0px 0px -10% 0px'});$$('[data-reveal]').forEach(x=>obs.observe(x));}
+function initReveal(){
+ const reduced=motionReduced(), canObserve='IntersectionObserver' in window;
+ const patterns=[
+  ['.services .tabs','soft'],['#servicesControls','soft'],['#servicesGrid','soft'],
+  ['.results-head-deco','soft'],['.results-photo-caption','soft'],
+  ['.gallery-heading','soft'],['#galleryGrid .gallery-btn','up'],
+  ['.doctor .section-head','up'],['.doctor .doctor-care-list > div','soft'],
+  ['.journey .section-head>div','up'],['.journey .section-head>.section-intro','soft'],
+  ['.journey .journey-step','up'],
+  ['.testimonials .eyebrow','soft'],['.testimonials .section-title','up'],
+  ['.testimonials .quote-shell','up'],
+  ['.faq .faq-grid>*','up'],['.faq .faq-item','soft'],['.contact .section-head','up'],
+  ['.contact .contact-grid>*','up'],['.contact .fields>.form-row','soft'],
+  ['.contact .fields>.field','soft'],['.contact .contact-detail','soft'],
+  ['.contact .contact-social','soft'],['.cta-benefits>span','soft'],
+  ['.cta-actions','soft'],['.footer-layout>*','soft'],['.footer-bottom','soft']
+ ];
+ for(const [selector,type] of patterns){
+  document.querySelectorAll(selector).forEach((el,i)=>{
+   if(el.hasAttribute('data-reveal')||el.hasAttribute('data-motion'))return;
+   el.dataset.motion=type;
+   el.style.setProperty('--motion-order',String(i%4));
+  });
+ }
+ document.querySelectorAll('#servicesGrid .service-card').forEach((el,i)=>el.style.setProperty('--motion-order',String(i%3)));
+ const all=[...document.querySelectorAll('[data-reveal],[data-motion]')];
+ if(reduced||!canObserve){
+  all.forEach(el=>el.classList.add('revealed','motion-shown'));
+  return;
+ }
+ document.documentElement.classList.add('motion-ready');
+ const entered=new WeakSet(),left=new WeakSet();
+ let previousY=window.scrollY,scrollDirection='down';
+ window.addEventListener('scroll',()=>{
+  const y=window.scrollY,delta=y-previousY;
+  if(Math.abs(delta)>1)scrollDirection=delta>0?'down':'up';
+  previousY=y;
+ },{passive:true});
+ const observer=new IntersectionObserver(entries=>{
+  for(const entry of entries){
+   const el=entry.target;
+   if(entry.isIntersecting){
+    if(!entered.has(el)){
+     entered.add(el);
+     el.classList.add('revealed','motion-shown');
+    }else if(left.has(el)){
+     left.delete(el);
+     // Do not re-animate interactive service rail / its cards on mobile;
+     // repeating a translation while swiping would make the carousel feel stuck.
+     if(matchMedia('(max-width:959px)').matches &&
+        (el.id==='servicesGrid'||el.id==='servicesControls'||el.closest('#servicesGrid')))continue;
+     if(el.getAttribute('data-motion')==='service' && el.hidden)continue;
+     const cls=scrollDirection==='down'?'motion-revisit-down':'motion-revisit-up';
+     el.classList.remove('motion-revisit-down','motion-revisit-up');
+     // Force a fresh animation even if the visitor scrolls back quickly.
+     void el.offsetWidth;
+     el.classList.add(cls);
+    }
+   }else if(entered.has(el)){
+    left.add(el);
+    el.classList.remove('motion-revisit-down','motion-revisit-up');
+   }
+  }
+ },{threshold:.065,rootMargin:'0px 0px -42px 0px'});
+ all.forEach(el=>{
+  el.addEventListener('animationend',event=>{
+   if(event.animationName==='ramiReturnFromBelow'||event.animationName==='ramiReturnFromAbove'){
+    el.classList.remove('motion-revisit-down','motion-revisit-up');
+   }
+  });
+  observer.observe(el);
+ });
+ requestAnimationFrame(()=>requestAnimationFrame(()=>document.documentElement.classList.add('page-settled')));
+}
+function initAmbientMotion(){
+ if(motionReduced()||!matchMedia('(min-width:960px)').matches)return;
+ const photos=[...document.querySelectorAll('.hero-arch img,.about-photo.a img,.why-photo img,.doctor-photo img')];
+ if(!photos.length)return;
+ photos.forEach(el=>el.classList.add('ambient-photo'));
+ let pending=false;
+ function draw(){
+  pending=false;
+  const h=window.innerHeight;
+  for(const el of photos){
+   const r=el.parentElement.getBoundingClientRect();
+   if(r.bottom<-(h*.45)||r.top>h*1.45)continue;
+   const progress=(h*.5-(r.top+r.height*.5))/h;
+   const shift=Math.max(-13,Math.min(13,progress*17));
+   el.style.setProperty('--photo-shift',shift.toFixed(2)+'px');
+  }
+ }
+ function requestDraw(){if(pending)return;pending=true;requestAnimationFrame(draw)}
+ window.addEventListener('scroll',requestDraw,{passive:true});
+ window.addEventListener('resize',requestDraw,{passive:true});
+ requestDraw();
+}
 function initCounters(){if(!('IntersectionObserver'in window)||motionReduced()){$$('[data-count]').forEach(el=>el.textContent=toFa(el.dataset.count)+(el.dataset.plus?'+':''));return;}const io=new IntersectionObserver(entries=>{entries.forEach(en=>{if(!en.isIntersecting)return;const el=en.target,target=+el.dataset.count,start=performance.now();function frame(t){const p=Math.min(1,(t-start)/1100),n=Math.round(target*(1-Math.pow(1-p,3)));el.textContent=toFa(n)+(el.dataset.plus?'+':'');if(p<1)requestAnimationFrame(frame);}requestAnimationFrame(frame);io.unobserve(el);});},{threshold:.5});$$('[data-count]').forEach(el=>io.observe(el));}
 function toast(text){const el=$('#toast');el.textContent=text;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),6000);}
 function initScheduleCalendar(){
@@ -386,7 +690,39 @@ function initForm(){const form=$('#bookingForm');$$('.field input:not([type="che
  const payload=['سلام، برای هماهنگی مشاوره با لیزر رامی پیام می‌دهم.','',`نام: ${name}`,`شماره تماس: ${toFa(mobile)}`,`خدمات موردنظر: ${serviceNames}`,`تاریخ و بازه زمانی پیشنهادی: ${get('preferredSchedule')||'تفاوتی ندارد'}`,get('message')?`توضیحات: ${get('message')}`:'','لطفاً برای هماهنگی نوبت راهنمایی بفرمایید.'].filter(Boolean).join('\n');
  const url='https://wa.me/'+SITE_DATA.whatsapp+'?text='+encodeURIComponent(payload);const btn=$('#submitBooking');btn.disabled=true;btn.textContent='آماده‌سازی پیام…';toast('پیام شما در واتساپ آماده ارسال است.');const win=window.open(url,'_blank','noopener,noreferrer');if(!win){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='بازکردن واتساپ برای ارسال درخواست';a.className='btn btn-outline';a.style.marginTop='12px';const old=$('#waFallback');if(old)old.remove();a.id='waFallback';btn.insertAdjacentElement('afterend',a);toast('اگر واتساپ خودکار باز نشد، از دکمه زیر فرم استفاده کنید.');}btn.disabled=false;btn.innerHTML='ادامه و ارسال درخواست در واتساپ <i class="fa-solid fa-arrow-left"></i>';});}
 function initFooter(){$('#year').textContent=new Intl.DateTimeFormat('fa-IR',{year:'numeric',timeZone:'Asia/Tehran'}).format(new Date());}
-document.addEventListener('DOMContentLoaded',()=>{initServices();initServiceMulti();initResults();initFaq();initImages();initModal();initDoctorProfile();initMenu();initHeader();initReveal();initCounters();initScheduleCalendar();initForm();initFooter();});
+document.addEventListener('DOMContentLoaded',()=>{initServices();initServiceMulti();initResults();initFaq();initImages();initModal();initDoctorProfile();initMenu();initHeader();document.addEventListener('rami:preloader-exit',initReveal,{once:true});initAmbientMotion();initCounters();initScheduleCalendar();initForm();initFooter();});
+</script>
+
+<script>
+/* Non-blocking preloader: wait briefly for the hero image, but never trap visitors on slow networks. */
+(function(){
+  const loader=document.getElementById('ramiPreloader');
+  if(!loader)return;
+  const started=performance.now();
+  const MIN_SHOW=900,MAX_SHOW=2300;
+  let dismissed=false;
+  function dismiss(){
+    if(dismissed)return;
+    dismissed=true;
+    loader.classList.add('is-leaving');
+    document.body.classList.remove('rami-preloading');
+    document.dispatchEvent(new Event('rami:preloader-exit'));
+    window.setTimeout(()=>loader.remove(),700);
+  }
+  function release(){
+    window.setTimeout(dismiss,Math.max(0,MIN_SHOW-(performance.now()-started)));
+  }
+  const failSafe=window.setTimeout(dismiss,MAX_SHOW);
+  function ready(){
+    const hero=document.querySelector('.hero-arch img');
+    if(!hero||hero.complete){release();return;}
+    hero.addEventListener('load',release,{once:true});
+    hero.addEventListener('error',release,{once:true});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready,{once:true});
+  else ready();
+  window.addEventListener('pageshow',e=>{if(e.persisted)dismiss();},{once:true});
+})();
 </script>
 </body>
 </html>
